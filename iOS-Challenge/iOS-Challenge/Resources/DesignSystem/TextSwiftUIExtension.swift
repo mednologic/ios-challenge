@@ -40,4 +40,9 @@ extension Text {
             .foregroundColor(DesignSystem.Colors.secondaryText)
             .bold()
     }
+
+    var actionStyle: Text {
+        font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
+            .foregroundColor(DesignSystem.Colors.actionDS)
+    }
 }

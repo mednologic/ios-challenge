@@ -15,6 +15,13 @@
 
 //Coomon
 "IMAGE_LOAD_ERROR" = "Failed to load image";
+"SALE" = "Sale";
+"RENT" = "Rent";
+"FLAT" = "Flat";
+"HOUSE" = "House";
+"VILLA" = "Villa";
+"STUDIO" = "Studio";
+"UNKNOWN" = "Unknown";
 
 //PropertyCell
 "MONTH" = "/month";
@@ -25,4 +32,11 @@
 "EXTERIOR" = "Exterior";
 "INTERIOR" = "Interior";
 
+// Details Screen
+"VER_MENOS" = "Show less";
+"VER_COMENTARIO_COMPLETO" = "Show full comment";
+"LIFT" = "Lift";
+"NO_LIFT" = "No lift";
+"BOXROOM" = "Boxroom";
+"NO_BOXROOM" = "No boxroom";
 

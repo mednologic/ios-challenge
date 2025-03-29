@@ -20,7 +20,8 @@ struct DesignSystem {
         static let tabBarUnselectedUIColor = UIColor(named: "TabBarUnselected") ?? .gray
         static let contrastTextColor = UIColor(named: "ContrastText") ?? .white
         static let shadowColor = UIColor(named: "ShadowColor") ?? .black
-        static let TagColor = UIColor(named: "Tag") ?? .black
+        static let tagColor = UIColor(named: "Tag") ?? .black
+        static let actionColorDS = UIColor(named: "Action") ?? .blue
 
         // For SwiftUI
         static var background: Color { Color(backgroundUIColor) }
@@ -32,7 +33,8 @@ struct DesignSystem {
         static var tabBarUnselected: Color { Color(tabBarUnselectedUIColor) }
         static var contrastText: Color { Color(contrastTextColor) }
         static var shadow: Color { Color(shadowColor) }
-        static var tag: Color { Color(TagColor).opacity(0.4) }
+        static var tag: Color { Color(tagColor).opacity(0.4) }
+        static var actionDS: Color { Color(actionColorDS) }
     }
 
     struct Spacing {

@@ -17,7 +17,7 @@ struct PropertyCell: View {
                 ImageView(urlString: property.thumbnail)
                     .overlay(alignment: .bottomTrailing) {
                         if let media = property.multimedia?.images, !media.isEmpty {
-                            fotoCountTag(count: media.count)
+                            FotoCountTag(count: media.count)
                                 .padding([.trailing, .bottom], DesignSystem.Spacing.s)
                         }
                     }
@@ -38,6 +38,7 @@ struct PropertyCell: View {
 
     private var propertyDetailsSection: some View {
         VStack(alignment: .leading, spacing: DesignSystem.Spacing.s) {
+
             Text(property.address)
                 .bodyStyle
 
@@ -61,6 +62,11 @@ struct PropertyCell: View {
 
                 floorAndType
             }
+            HStack {
+                OperationTag(operationType: property.operation)
+                PropertyTypeTag(propertyType: property.propertyType)
+                Spacer()
+            }
         }
     }
 
@@ -70,16 +76,6 @@ struct PropertyCell: View {
             Text(isIncluded ? "PARKING_INCLUDED".localized : "PARKING_OPTIONAL".localized)
                 .bodyStyle
         }
-    }
-
-    private func fotoCountTag(count: Int) -> some View {
-        RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
-            .fill(DesignSystem.Colors.tag)
-            .frame(width: 30, height: 30)
-            .overlay {
-                Text(String(count))
-                    .foregroundStyle(.contrastText)
-            }
     }
 
     private var floorAndType: some View {

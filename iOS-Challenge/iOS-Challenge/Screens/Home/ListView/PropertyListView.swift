@@ -17,8 +17,10 @@ struct PropertyListView: View {
                 LazyVStack(spacing: DesignSystem.Spacing.m) {
                     ForEach(viewModel.propietiesList, id: \.propertyCode) { property in
                         PropertyCell(property: property)
+                            .padding(.bottom, DesignSystem.Spacing.m)
                     }
                 }
+                .padding(.top, DesignSystem.Spacing.m)
             }
         }
     }

@@ -21,3 +21,9 @@ struct PropertyDetailModel: Codable {
     let moreCharacteristics: MoreCharacteristicsModel
     let energyCertification: EnergyCertificationModel
 }
+
+extension PropertyDetailModel {
+    var formattedPrice: String {
+        PriceFormatter.format(amount: priceInfo.amount, currencySuffix: priceInfo.currencySuffix)
+    }
+}

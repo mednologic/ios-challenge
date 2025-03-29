@@ -11,6 +11,13 @@ struct PropertyListView: View {
     @ObservedObject var viewModel: PropertyListViewModel
 
     var body: some View {
-        Text("Hola !!!")
+        VStack {
+            if let firstProperty = viewModel.propietiesList.first {
+                Text("Address: \(firstProperty.address)")
+            } else {
+                Text("No properties available.")
+            }
+        }
+        .padding()
     }
 }

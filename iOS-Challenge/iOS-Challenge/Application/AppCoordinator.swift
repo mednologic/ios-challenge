@@ -47,6 +47,8 @@ class AppCoordinator: CoordinatorProtocol {
         favoritesView.title = "FAVORITES_TITLE".localized
         favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
 
+        tbBarController.tabBar.tintColor = .black
+        tbBarController.tabBar.unselectedItemTintColor = .gray
         tbBarController.setViewControllers([homeView, favoritesView], animated: true)
     }
 

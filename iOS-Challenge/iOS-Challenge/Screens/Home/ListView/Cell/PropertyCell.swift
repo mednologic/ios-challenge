@@ -31,7 +31,7 @@ struct PropertyCell: View {
             RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
                 .stroke(Color.black, lineWidth: 1)
         )
-        .padding(.leading, DesignSystem.Spacing.s)
+        .padding(.horizontal, DesignSystem.Spacing.s)
         .frame(height: 450)
         .cardShadow()
     }

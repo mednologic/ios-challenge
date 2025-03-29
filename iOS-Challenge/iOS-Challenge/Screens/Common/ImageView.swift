@@ -23,20 +23,15 @@ struct ImageView: View {
             if let image = image {
                 Image(uiImage: image)
                     .resizable()
-                    .frame(height: Constants.heightIphone)
-                    .clipped()
-                    .cornerRadius(DesignSystem.CornerRadius.m)
             } else if isLoading {
                 ProgressView()
             } else {
                 Image(.imagePlaceHolder)
                     .resizable()
-                    .frame(height: Constants.heightIphone)
-                    .clipped()
-                    .cornerRadius(DesignSystem.CornerRadius.m)
             }
         }
         .clipped()
+        .frame(height: Constants.heightIphone)
         .cornerRadius(DesignSystem.CornerRadius.m)
         .task {
             await loadImage()

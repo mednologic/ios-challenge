@@ -6,17 +6,36 @@
 //
 
 import UIKit
+import SwiftUI
 
 final class HomeViewController: UIViewController {
+    private let repository: PropietiesDataRepositoryProtocol
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    init() {
+    @IBOutlet weak var ListView: UIView!
+
+    init(repository: PropietiesDataRepositoryProtocol) {
+        self.repository = repository
         super.init(nibName: "Home", bundle: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpListView()
+    }
+
+    private func setUpListView() {
+        let viewModel = PropertyListViewModel(repository: repository)
+        let swiftUIView = PropertyListView(viewModel: viewModel)
+
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        addChild(hostingController)
+        hostingController.view.frame = ListView.bounds
+        hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        ListView.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
     }
 }

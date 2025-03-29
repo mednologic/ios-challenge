@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController" customModule="iOS_Challenge" customModuleProvider="target">
             <connections>
+                <outlet property="ListView" destination="Sae-YA-LiG" id="pHi-QC-2o6"/>
                 <outlet property="view" destination="iN0-l3-epB" id="kIr-NI-b8X"/>
             </connections>
         </placeholder>
@@ -18,8 +19,20 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sae-YA-LiG" userLabel="ListView">
+                    <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Sae-YA-LiG" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="e5O-g3-u8H"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Sae-YA-LiG" secondAttribute="bottom" id="frR-Fg-iUd"/>
+                <constraint firstItem="Sae-YA-LiG" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pWi-tP-hGO"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Sae-YA-LiG" secondAttribute="trailing" id="w28-YT-ZY6"/>
+            </constraints>
             <point key="canvasLocation" x="-10" y="21"/>
         </view>
     </objects>

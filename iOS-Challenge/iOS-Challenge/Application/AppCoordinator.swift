@@ -52,7 +52,7 @@ class AppCoordinator: CoordinatorProtocol {
 
     func setHomeView() -> UINavigationController {
         let navigationController = UINavigationController()
-        let view = HomeViewController()
+        let view = HomeViewController(repository: repository)
 
         navigationController.setViewControllers([view], animated: true)
 

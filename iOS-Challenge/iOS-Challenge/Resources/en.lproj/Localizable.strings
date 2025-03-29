@@ -39,4 +39,10 @@
 "NO_LIFT" = "No lift";
 "BOXROOM" = "Boxroom";
 "NO_BOXROOM" = "No boxroom";
+"BATHROOMS" = "bathrooms";
+"COMMUNITY" = "Community";
+"MORE_INFO" = "More info";
+"DESCRIPTION" = "Description";
+"CERTIFICATION" = "Energy Certification";
+"DUPLEX" = "Duplex";
 

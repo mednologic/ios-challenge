@@ -39,3 +39,10 @@
 "NO_LIFT" = "Sin ascensor";
 "BOXROOM" = "Con trastero";
 "NO_BOXROOM" = "Sin trastero";
+"BATHROOMS" = "baños";
+"COMMUNITY" = "Comunidad";
+"MORE_INFO" = "Más información";
+"DESCRIPTION" = "Descripción";
+"CERTIFICATION" = "Certificación energética";
+"DUPLEX" = "Dúplex";
+

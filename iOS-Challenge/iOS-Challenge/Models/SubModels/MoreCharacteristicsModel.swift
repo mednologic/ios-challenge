@@ -4,6 +4,7 @@
 //
 //  Created by josepL on 29/3/25.
 //
+import SwiftUI
 
 struct MoreCharacteristicsModel: Codable {
     let communityCosts: Double?
@@ -21,4 +22,17 @@ struct MoreCharacteristicsModel: Codable {
     let isDuplex: Bool
     let floor: String
     let status: String
+}
+
+extension MoreCharacteristicsModel {
+    var formattedCommunityCosts: String? {
+        guard let communityCosts = communityCosts else { return nil }
+
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = 0
+        formatter.minimumFractionDigits = 0
+
+        return formatter.string(from: NSNumber(value: communityCosts))
+    }
 }

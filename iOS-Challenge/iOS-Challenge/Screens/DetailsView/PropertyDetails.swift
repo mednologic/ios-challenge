@@ -45,26 +45,51 @@ struct PropertyDetails: View {
                     .amountStyle
 
                 Spacer()
-            }
-            PropertyTypeTag(propertyType: property.propertyType)
 
-            if let communityCost = property.moreCharacteristics.communityCosts {
-                Text(String(communityCost))
+                
+                if let communityCost = property.moreCharacteristics.formattedCommunityCosts {
+                    Text(String(communityCost))
+                        .captionStyle
+
+                }
+                Text("COMMUNITY".localized)
+                    .captionStyle
+
             }
-            Text(String(property.moreCharacteristics.roomNumber))
-            Text(String(property.moreCharacteristics.bathNumber))
-            Text(property.moreCharacteristics.exterior ? "EXTERIOR".localized : "INTERIOR".localized)
-            Text(property.moreCharacteristics.energyCertificationType)
-            Text(property.moreCharacteristics.flatLocation)
-            Text(String(property.moreCharacteristics.constructedArea))
+
+            HStack {
+                PropertyTypeTag(propertyType: property.propertyType)
+                Text(property.moreCharacteristics.exterior ? "EXTERIOR".localized : "INTERIOR".localized)
+            }
+
+            HStack {
+                Text("\(property.moreCharacteristics.roomNumber) " + "ROOMS".localized)
+
+                Text("\(property.moreCharacteristics.bathNumber) " + "BATHROOMS".localized)
+
+                Text("\(property.moreCharacteristics.constructedArea) " + "m2")
+            }
+            HStack {
+                Text("\(property.moreCharacteristics.floor) " + "PLANTA".localized)
+
+                if property.moreCharacteristics.isDuplex {
+                    Text("DUPLEX".localized)
+                }
+            }
+
+            sectionBanner(title: "MORE_INFO".localized)
+
+            Text("CERTIFICATION".localized + ":  " +
+                 property.moreCharacteristics.energyCertificationType.uppercased())
+
             Text(property.moreCharacteristics.lift ? "LIFT".localized : "NO_LIFT".localized)
+
             Text(property.moreCharacteristics.boxroom ? "BOXROOM".localized : "NO_BOXROOM".localized)
-            if property.moreCharacteristics.isDuplex {
-                Text("BOXROOM".localized)
-            }
-            Text(String(property.moreCharacteristics.floor))
+
             Text(property.moreCharacteristics.status) // TODO: traduïr
 
+            sectionBanner(title: "DESCRIPTION".localized)
+            
             VStack(alignment: .leading, spacing: DesignSystem.Spacing.xs) {
                 Text(property.propertyComment)
                     .lineLimit(commentExpanded ? nil : 5)
@@ -77,6 +102,20 @@ struct PropertyDetails: View {
                 }
             }
         }
+    }
+
+    private func sectionBanner(title: String) -> some View {
+        HStack {
+            Text(title)
+                .bannerStyle
+                .foregroundStyle(DesignSystem.Colors.primaryText)
+                .padding(.vertical, DesignSystem.Spacing.s)
+
+            Spacer()
+        }
+        .padding(.horizontal, DesignSystem.Spacing.m)
+        .background(DesignSystem.Colors.accentGray)
+        .cornerRadius(DesignSystem.CornerRadius.m)
     }
 }
 

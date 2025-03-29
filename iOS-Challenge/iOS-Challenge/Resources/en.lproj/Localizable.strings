@@ -1,2 +1,7 @@
-"favorites_title" = "Favorites";
-"home_title" = "Home";
+"FAVORITES_TITLE" = "Favorites";
+"HOME_TITLE" = "Home";
+"CONNECTION_ERROR" = "A connection problem has occurred. Please check your network.";
+"BAD_RESPONSE_ERROR" = "Could not retrieve the information. Please try again later.";
+"NO_CONTENT_ERROR" = "No content available at this moment.";
+"DECODING_ERROR" = "There was an issue processing the information. Please try again.";
+"UNKNOWN_ERROR" = "Something went wrong. Please try again later.";

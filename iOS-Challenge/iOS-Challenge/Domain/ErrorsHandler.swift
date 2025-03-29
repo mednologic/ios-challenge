@@ -30,22 +30,22 @@ struct ErrorsHandler {
     func handleNetworkError(_ error: NetworkError) -> String {
         switch error {
         case .noHTTP:
-            return "No es un http" // TODO: translation when languages ara added
+            return "CONNECTION_ERROR".localized
         case .badResponse:
-            return "Error en respuesta"// TODO: translation when languages ara added
+            return "BAD_RESPONSE_ERROR".localized
         }
 
         func handleDecoderError(_ error: DecoderJSONError) -> String {
             switch error {
             case .noContent:
-                return "No hay contenido disponible."// TODO: translation when languages ara added
-            case .decodingError(let innerError):
-                return "Error de decodificación: \(innerError.localizedDescription)"// TODO: translation when languages ara added
+                return "NO_CONTENT_ERROR".localized
+            case .decodingError(_):
+                return "DECODING_ERROR".localized
             }
         }
 
         func handleUnknownError(_ error: Error) -> String {
-            return "Error desconocido: \(error.localizedDescription)"// TODO: translation when languages ara added
+            return "UNKNOWN_ERROR".localized
         }
 
         func handle(error: Error) -> String {

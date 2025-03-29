@@ -40,11 +40,11 @@ class AppCoordinator: CoordinatorProtocol {
 
     func setTabBar() {
         let homeView = setHomeView()
-        homeView.title = "home_title".localized
+        homeView.title = "HOME_TITLE".localized
         homeView.tabBarItem.image = UIImage(systemName: "house.fill")
 
         let favoritesView = setFavoritesView()
-        favoritesView.title = "favorites_title".localized
+        favoritesView.title = "FAVORITES_TITLE".localized
         favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
 
         tbBarController.setViewControllers([homeView, favoritesView], animated: true)

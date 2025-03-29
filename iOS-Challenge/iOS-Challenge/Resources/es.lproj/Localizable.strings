@@ -14,4 +14,11 @@
 "UNKNOWN_ERROR" = "Algo no ha salido bien. Inténtalo de nuevo más tarde.";
 
 // Common
-"OK" = "OK";
+"IMAGE_LOAD_ERROR" = "No se ha podido cargar la imagen";
+
+//PropertyCell
+"MONTH" = "/mes";
+"PARKING_INCLUDED" = "Garaje incluido";
+"PARKING_OPTIONAL" = "Garaje opcional";
+"ROOMS" = "hab.";
+"PLANTA" = "Planta";

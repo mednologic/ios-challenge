@@ -16,27 +16,28 @@ enum DSSizesText: CGFloat {
 
 extension Text {
     var titleStyle: Text {
-        self
-            .font(.system(size: DSSizesText.title.rawValue, weight: .bold))
+        font(.system(size: DSSizesText.title.rawValue, weight: .bold))
             .foregroundColor(DesignSystem.Colors.primaryText)
     }
 
     var subtitleStyle: Text {
-        self
-            .font(.system(size: DSSizesText.subtitle.rawValue, weight: .semibold))
+        font(.system(size: DSSizesText.subtitle.rawValue, weight: .semibold))
             .foregroundColor(DesignSystem.Colors.secondaryText)
     }
 
     var bodyStyle: Text {
-        self
-            .font(.system(size: DSSizesText.body.rawValue, weight: .regular))
+        font(.system(size: DSSizesText.body.rawValue, weight: .regular))
             .foregroundColor(DesignSystem.Colors.primaryText)
     }
 
     var captionStyle: Text {
-        self
-//            .font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
-            .font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
+        font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
             .foregroundColor(DesignSystem.Colors.secondaryText)
+    }
+
+    var amountStyle: Text {
+        font(.system(size: DSSizesText.subtitle.rawValue, weight: .regular))
+            .foregroundColor(DesignSystem.Colors.secondaryText)
+            .bold()
     }
 }

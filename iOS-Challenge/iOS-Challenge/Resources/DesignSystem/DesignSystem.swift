@@ -18,6 +18,8 @@ struct DesignSystem {
         static let accentGrayUIColor = UIColor(named: "AccentGray") ?? .systemGray6
         static let tabBarSelectedUIColor = UIColor(named: "TabBarSelected") ?? .yellow
         static let tabBarUnselectedUIColor = UIColor(named: "TabBarUnselected") ?? .gray
+        static let contrastTextColor = UIColor(named: "ContrastText") ?? .white
+        static let shadowColor = UIColor(named: "ShadowColor") ?? .black
 
         // For SwiftUI
         static var background: Color { Color(backgroundUIColor) }
@@ -27,6 +29,8 @@ struct DesignSystem {
         static var accentGray: Color { Color(accentGrayUIColor) }
         static var tabBarSelected: Color { Color(tabBarSelectedUIColor) }
         static var tabBarUnselected: Color { Color(tabBarUnselectedUIColor) }
+        static var contrastText: Color { Color(contrastTextColor) }
+        static var shadow: Color { Color(shadowColor) }
     }
 
     struct Spacing {
@@ -35,5 +39,29 @@ struct DesignSystem {
         static let m: CGFloat = 16
         static let l: CGFloat = 24
         static let xl: CGFloat = 32
+    }
+
+    struct CornerRadius {
+        static let m: CGFloat = 8
+    }
+
+    struct Shadows {
+        static let cardShadowColor: Color = DesignSystem.Colors.shadow.opacity(0.2)
+        static let cardShadowRadius: CGFloat = 4
+        static let cardShadowX: CGFloat = 0
+        static let cardShadowY: CGFloat = 2
+    }
+
+    struct CardShadowModifier: ViewModifier {
+        @Environment(\.colorScheme) var colorScheme
+
+        func body(content: Content) -> some View {
+            content.shadow(
+                color: DesignSystem.Colors.shadow.opacity(0.5),
+                radius: DesignSystem.Shadows.cardShadowRadius,
+                x: DesignSystem.Shadows.cardShadowX,
+                y: DesignSystem.Shadows.cardShadowY
+            )
+        }
     }
 }

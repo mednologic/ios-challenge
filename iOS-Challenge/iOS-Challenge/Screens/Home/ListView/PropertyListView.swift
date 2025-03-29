@@ -11,13 +11,18 @@ struct PropertyListView: View {
     @ObservedObject var viewModel: PropertyListViewModel
 
     var body: some View {
-        VStack {
-            if let firstProperty = viewModel.propietiesList.first {
-                Text("Address: \(firstProperty.address)")
-            } else {
-                Text("No properties available.")
+        ZStack {
+            DesignSystem.Colors.background.ignoresSafeArea()
+            VStack {
+                if let firstProperty = viewModel.propietiesList.first {
+                    Text("Address: \(firstProperty.address)")
+                        .foregroundStyle(DesignSystem.Colors.primaryText)
+                } else {
+                    Text("No properties available.")
+                }
             }
+            .padding()
         }
-        .padding()
+
     }
 }

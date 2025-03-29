@@ -35,15 +35,38 @@ class AppCoordinator: CoordinatorProtocol {
     }
 
     func start() {
-        Task {
-            do {
-                let list = try await repository.fetchPropietiesList()
-                print(list)
-            } catch {
-                print("Error fetching properties: \(error)")
-            }
-        }
+        setTabBar()
+    }
 
-        // TODO: hacer tabbar
+    func setTabBar() {
+        let homeView = setHomeView()
+        homeView.title = "HOME_TITLE".localized
+        homeView.tabBarItem.image = UIImage(systemName: "house.fill")
+
+        let favoritesView = setFavoritesView()
+        favoritesView.title = "FAVORITES_TITLE".localized
+        favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
+
+        tbBarController.tabBar.tintColor = .black
+        tbBarController.tabBar.unselectedItemTintColor = .gray
+        tbBarController.setViewControllers([homeView, favoritesView], animated: true)
+    }
+
+    func setHomeView() -> UINavigationController {
+        let navigationController = UINavigationController()
+        let view = HomeViewController(repository: repository)
+
+        navigationController.setViewControllers([view], animated: true)
+
+        return navigationController
+    }
+
+    func setFavoritesView() -> UINavigationController {
+        let navigationController = UINavigationController()
+        let view = FavoritesViewController()
+
+        navigationController.setViewControllers([view], animated: true)
+
+        return navigationController
     }
 }

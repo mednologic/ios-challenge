@@ -24,7 +24,23 @@ final class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = DesignSystem.Colors.backgroundUIColor
+        setUpTitleLabel()
         setUpListView()
+    }
+
+    private func setUpTitleLabel() {
+        let titleLabel = UILabel()
+        titleLabel.text = "WELCOME_HOME_TITLE".localized
+        titleLabel.applyTitleStyle()
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        view.addSubview(titleLabel)
+
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: DesignSystem.Spacing.m),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
 
     private func setUpListView() {

@@ -1,7 +1,17 @@
+// TabBar
 "FAVORITES_TITLE" = "Favoritos";
 "HOME_TITLE" = "Inicio";
+
+// HomeScreen
+"WELCOME_HOME_TITLE" = "Bienvenido a HomeForU";
+
+// Errors
+"ERROR" = "Ups!, ha habido un error";
 "CONNECTION_ERROR" = "Ha ocurrido un problema de conexión. Por favor, verifica tu red.";
 "BAD_RESPONSE_ERROR" = "No se ha podido obtener la información. Intenta de nuevo más tarde.";
 "NO_CONTENT_ERROR" = "No hay contenido disponible en este momento.";
 "DECODING_ERROR" = "Ha ocurrido un problema al procesar la información. Inténtalo de nuevo.";
 "UNKNOWN_ERROR" = "Algo no ha salido bien. Inténtalo de nuevo más tarde.";
+
+// Common
+"OK" = "OK";

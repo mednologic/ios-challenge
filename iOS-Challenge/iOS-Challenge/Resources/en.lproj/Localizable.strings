@@ -14,4 +14,15 @@
 "UNKNOWN_ERROR" = "Something went wrong. Please try again later.";
 
 //Coomon
-"OK" = "OK";
+"IMAGE_LOAD_ERROR" = "Failed to load image";
+
+//PropertyCell
+"MONTH" = "/month";
+"PARKING_INCLUDED" = "Parking included";
+"PARKING_OPTIONAL" = "Optional parking";
+"ROOMS" = "rooms";
+"PLANTA" = "Floor";
+"EXTERIOR" = "Exterior";
+"INTERIOR" = "Interior";
+
+

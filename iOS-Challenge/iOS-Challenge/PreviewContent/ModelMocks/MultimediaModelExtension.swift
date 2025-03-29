@@ -7,5 +7,5 @@
 
 
 extension MultimediaModel {
-    static let mockMultimediaModel = MultimediaModel(images: [.mockImageModel])
+    static let mockMultimediaModel = MultimediaModel(images: [.mockImageModel, .mockImageModel])
 }

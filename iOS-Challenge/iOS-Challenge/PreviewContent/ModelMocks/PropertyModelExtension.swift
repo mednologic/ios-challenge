@@ -6,12 +6,38 @@
 //
 
 extension PropertyModel {
-    static let mockPropertyModelNormal = PropertyModel(
+    static let mockPropertyModelRent = PropertyModel(
         propertyCode: "1",
-        thumbnail: "previewThumbnail",
+        thumbnail: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp",
+        floor: "2",
+        price: 889000.0,
+        priceInfo: .mockPriceInfoListModelRent,
+        propertyType: .flat,
+        operation: .rent,
+        size: 133.0,
+        exterior: false,
+        rooms: 3,
+        bathrooms: 2,
+        address: "calle de Lagasca",
+        province: "Madrid",
+        municipality: "Madrid",
+        district: "Barrio de Salamanca",
+        country: "es",
+        neighborhood: "Castellana",
+        latitude: 40.4362687,
+        longitude: -3.6833686,
+        description: mockDescription,
+        multimedia: .mockMultimediaModel,
+        features: .mockFeaturesModelAllTrue,
+        parkingSpace: .mockParkingSpaceModelTrue
+    )
+
+    static let mockPropertyModelSale = PropertyModel(
+        propertyCode: "1",
+        thumbnail: "https://img4.idealista.com/blur/WEB_LISTING-M/0/id.pro.es.image.master/58/60/32/1273036727.webp",
         floor: "2",
         price: 1195000.0,
-        priceInfo: .mockPriceInfoListModel,
+        priceInfo: .mockPriceInfoListModelSale,
         propertyType: .flat,
         operation: .sale,
         size: 133.0,
@@ -28,7 +54,8 @@ extension PropertyModel {
         longitude: -3.6833686,
         description: mockDescription,
         multimedia: .mockMultimediaModel,
-        features: .mockFeaturesModelAllTrue
+        features: .mockFeaturesModelAllTrue,
+        parkingSpace: .mockParkingSpaceModelTrue
     )
 
     static let mockDescription = """

@@ -13,16 +13,17 @@ struct PropertyListView: View {
     var body: some View {
         ZStack {
             DesignSystem.Colors.background.ignoresSafeArea()
-            VStack {
-                if let firstProperty = viewModel.propietiesList.first {
-                    Text("Address: \(firstProperty.address)")
-                        .foregroundStyle(DesignSystem.Colors.primaryText)
-                } else {
-                    Text("No properties available.")
+            ScrollView {
+                LazyVStack(spacing: DesignSystem.Spacing.m) {
+                    ForEach(viewModel.propietiesList, id: \.propertyCode) { property in
+                        PropertyCell(property: property)
+                    }
                 }
             }
-            .padding()
         }
-
     }
+}
+#Preview {
+    PropertyListView(viewModel: .mockPropertyListViewModel)
+        .padding()
 }

@@ -5,12 +5,14 @@
 //  Created by josepL on 29/3/25.
 //
 
+import SwiftUI
+
 enum PropertyType: String, Codable, CaseIterable {
-    case flat = "flat"
-    case house = "house"
-    case villa = "villa"
-    case studio = "studio"
-    case unknown = "unknown"
+    case flat
+    case house
+    case villa
+    case studio
+    case unknown
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -20,9 +22,9 @@ enum PropertyType: String, Codable, CaseIterable {
 }
 
 enum OperationType: String, Codable, CaseIterable {
-    case sale = "sale"
-    case rent = "rent"
-    case unknown = "unknown"
+    case sale
+    case rent
+    case unknown
 
     init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
@@ -54,6 +56,25 @@ struct PropertyModel: Codable {
     let description: String
     let multimedia: MultimediaModel?
     let features: FeaturesModel?
+    let parkingSpace: ParkingSpaceModel?
 }
 
+extension PropertyModel {
+    var formattedPrice: String {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
 
+        let amount = priceInfo.price.amount
+        let formatted = formatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
+
+        return formatted + " " + priceInfo.price.currencySuffix
+    }
+
+    var formattedSize: String {
+        String(format: "%.0f m²", size)
+    }
+
+    var formattedRooms: String {
+        "\(rooms) \("ROOMS".localized)"
+    }
+}

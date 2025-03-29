@@ -11,12 +11,24 @@ enum PropertyType: String, Codable, CaseIterable {
     case villa = "villa"
     case studio = "studio"
     case unknown = "unknown"
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self).lowercased()
+        self = PropertyType(rawValue: rawValue) ?? .unknown
+    }
 }
 
 enum OperationType: String, Codable, CaseIterable {
     case sale = "sale"
     case rent = "rent"
     case unknown = "unknown"
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self).lowercased()
+        self = OperationType(rawValue: rawValue) ?? .unknown
+    }
 }
 
 struct PropertyModel: Codable {
@@ -24,7 +36,7 @@ struct PropertyModel: Codable {
     let thumbnail: String
     let floor: String?
     let price: Double
-    let priceInfo: PriceInfoModel
+    let priceInfo: PriceInfoListModel
     let propertyType: PropertyType
     let operation: OperationType
     let size: Double

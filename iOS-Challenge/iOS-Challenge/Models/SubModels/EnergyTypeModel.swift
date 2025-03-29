@@ -14,6 +14,12 @@ enum EnergyType: String, Codable, CaseIterable {
     case F = "f"
     case G = "g"
     case unknown = "unknown"
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self).lowercased()
+        self = EnergyType(rawValue: rawValue) ?? .unknown
+    }
 }
 
 struct EnergyTypeModel: Codable {

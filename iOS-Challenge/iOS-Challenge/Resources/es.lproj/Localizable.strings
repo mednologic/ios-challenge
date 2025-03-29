@@ -22,3 +22,5 @@
 "PARKING_OPTIONAL" = "Garaje opcional";
 "ROOMS" = "hab.";
 "PLANTA" = "Planta";
+"EXTERIOR" = "Exterior";
+"INTERIOR" = "Interior";

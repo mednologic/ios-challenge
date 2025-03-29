@@ -63,24 +63,11 @@ extension PropertyModel {
     var formattedPrice: String {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
-        formatter.groupingSeparator = "."
-        formatter.decimalSeparator = ","
-
-        formatter.maximumFractionDigits = operation == .rent ? 2 : 0
-        formatter.minimumFractionDigits = operation == .rent ? 2 : 0
 
         let amount = priceInfo.price.amount
         let formatted = formatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
 
         return formatted + " " + priceInfo.price.currencySuffix
-    }
-
-    var formattedPriceWithSuffix: String {
-        if operation == .rent {
-            return formattedPrice + " /mes"
-        } else {
-            return formattedPrice
-        }
     }
 
     var formattedSize: String {

@@ -39,13 +39,13 @@ struct PropertyCell: View {
     private var propertyDetailsSection: some View {
         VStack(alignment: .leading, spacing: DesignSystem.Spacing.s) {
             Text(property.address)
-                .font(.headline)
+                .bodyStyle
 
             Text("\(property.municipality), \(property.province)")
-                .font(.subheadline)
+                .bodyStyle
 
             HStack {
-                Text(property.formattedPriceWithSuffix)
+                Text(property.formattedPrice)
                     .amountStyle
 
                 if property.parkingSpace?.hasParkingSpace == true {
@@ -54,12 +54,12 @@ struct PropertyCell: View {
             }
             HStack {
                 Text(property.formattedRooms)
+                    .bodyStyle
 
                 Text(property.formattedSize)
+                    .bodyStyle
 
-                if let floor = property.floor {
-                    Text("\("PLANTA".localized) \(floor)")
-                }
+                floorAndType
             }
         }
     }
@@ -68,16 +68,31 @@ struct PropertyCell: View {
     private var parkingText: some View {
         if let isIncluded = property.parkingSpace?.isParkingSpaceIncludedInPrice {
             Text(isIncluded ? "PARKING_INCLUDED".localized : "PARKING_OPTIONAL".localized)
+                .bodyStyle
         }
     }
 
     private func fotoCountTag(count: Int) -> some View {
         RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
+            .fill(DesignSystem.Colors.tag)
             .frame(width: 30, height: 30)
             .overlay {
                 Text(String(count))
                     .foregroundStyle(.contrastText)
             }
+    }
+
+    private var floorAndType: some View {
+        HStack {
+            if let floor = property.floor {
+                Text("PLANTA".localized + " " + floor)
+                    .bodyStyle
+            }
+            if let isExterior = property.exterior {
+                Text(isExterior ? "EXTERIOR".localized : "INTERIOR".localized)
+                    .bodyStyle
+            }
+        }
     }
 }
 

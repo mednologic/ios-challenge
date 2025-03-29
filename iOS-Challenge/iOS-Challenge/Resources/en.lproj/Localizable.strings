@@ -22,5 +22,7 @@
 "PARKING_OPTIONAL" = "Optional parking";
 "ROOMS" = "rooms";
 "PLANTA" = "Floor";
+"EXTERIOR" = "Exterior";
+"INTERIOR" = "Interior";
 
 

@@ -34,16 +34,28 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
+				PreviewContent/ReadMePreviewContent.md,
 			);
 			target = 6431D96E2D97D47F0035AD93 /* iOS-Challenge */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
+		6431DA7F2D97EB200035AD93 /* Exceptions for "iOS-Challenge" folder in "Compile Sources" phase from "iOS-Challenge" target */ = {
+			isa = PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet;
+			buildPhase = 6431D96B2D97D47F0035AD93 /* Sources */;
+			membershipExceptions = (
+				PreviewContent/ReadMePreviewContent.md,
+			);
+		};
+/* End PBXFileSystemSynchronizedGroupBuildPhaseMembershipExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		6431D9712D97D47F0035AD93 /* iOS-Challenge */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
 				6431D9972D97D4810035AD93 /* Exceptions for "iOS-Challenge" folder in "iOS-Challenge" target */,
+				6431DA7F2D97EB200035AD93 /* Exceptions for "iOS-Challenge" folder in "Compile Sources" phase from "iOS-Challenge" target */,
 			);
 			path = "iOS-Challenge";
 			sourceTree = "<group>";
@@ -326,6 +338,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6DCF8ALR8N;
+				EXCLUDED_SOURCE_FILE_NAMES = "PreviewContent/*";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "iOS-Challenge/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = HomeForU;

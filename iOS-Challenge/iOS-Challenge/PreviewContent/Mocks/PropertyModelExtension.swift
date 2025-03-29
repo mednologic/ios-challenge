@@ -11,7 +11,7 @@ extension PropertyModel {
         thumbnail: "previewThumbnail",
         floor: "2",
         price: 1195000.0,
-        priceInfo: .mockPriceInfoModel,
+        priceInfo: .mockPriceInfoListModel,
         propertyType: .flat,
         operation: .sale,
         size: 133.0,

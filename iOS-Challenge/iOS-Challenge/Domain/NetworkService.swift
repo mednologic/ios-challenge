@@ -1,0 +1,29 @@
+//
+//  NetworkService.swift
+//  iOS-Challenge
+//
+//  Created by josepL on 29/3/25.
+//
+
+import Foundation
+
+protocol NetworkServiceProtocol {
+    func getJSONToModel<T>(request: URLRequest, type: T.Type) async throws -> T where T: Codable
+}
+
+final class NetworkService: NetworkServiceProtocol {
+    public static let shared = NetworkService()
+
+    public func getJSONToModel<T>(request: URLRequest, type: T.Type) async throws -> T where T: Codable {
+        let (data, response) = try await URLSession.shared.getData(for: request)
+        if response.statusCode == 200 {
+            do {
+                return try JSONDecoder().decode(type, from: data)
+            } catch {
+                throw error
+            }
+        } else {
+            throw NetworkError.badResponse
+        }
+    }
+}

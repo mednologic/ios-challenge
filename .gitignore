@@ -1,0 +1,65 @@
+# macOS system files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Xcode
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.xcuserstate
+*.xcdebugger
+
+# Xcode generated files
+DerivedData/
+build/
+*.moved-aside
+*.pbxuser
+*.mode1v3
+*.mode2v3
+*.perspectivev3
+
+# Swift
+*.hmap
+
+# App distribution files
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# Swift Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Swift Package Manager
+.build/
+.swiftpm/
+Package.resolved
+
+# CocoaPods (only ignore if you don’t want to track dependencies)
+Pods/
+Podfile.lock
+*.xcworkspace
+
+# Carthage
+Carthage/Checkouts/
+Carthage/Build/
+
+# Accio dependency management
+Dependencies/
+.accio/
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code Injection (used for hot reloading in Xcode)
+iOSInjectionProject/
+
+# Log and temporary files
+*.log
+*.swp
+*.swo
+*.swn

@@ -14,29 +14,34 @@ struct PropertyCell: View {
         ZStack {
             DesignSystem.Colors.accentGray
             VStack(alignment: .leading) {
-                ImageView(urlString: property.thumbnail)
-                    .overlay(alignment: .bottomTrailing) {
-                        if let media = property.multimedia?.images, !media.isEmpty {
-                            fotoCountTag(count: media.count)
-                                .padding([.trailing, .bottom], DesignSystem.Spacing.s)
-                        }
-                    }
+                propertyImages
                     .padding(.bottom, DesignSystem.Spacing.s)
-                propertyDetailsSection
+
+                propertyInfoDetailsSection
                     .padding(.leading, DesignSystem.Spacing.m)
+
                 Spacer()
             }
         }
         .overlay(
             RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
                 .stroke(Color.black, lineWidth: 1)
+                .cardShadow()
         )
         .padding(.horizontal, DesignSystem.Spacing.s)
         .frame(height: 450)
-        .cardShadow()
     }
 
-    private var propertyDetailsSection: some View {
+    @ViewBuilder
+    private var propertyImages: some View {
+        if let images = property.multimedia?.images {
+            SwipeImageGalley(images: images)
+        } else {
+            ImageView(urlString: property.thumbnail)
+        }
+    }
+
+    private var propertyInfoDetailsSection: some View {
         VStack(alignment: .leading, spacing: DesignSystem.Spacing.s) {
             Text(property.address)
                 .bodyStyle
@@ -61,6 +66,13 @@ struct PropertyCell: View {
 
                 floorAndType
             }
+            HStack {
+                OperationTag(operationType: property.operation)
+
+                PropertyTypeTag(propertyType: property.propertyType)
+
+                Spacer()
+            }
         }
     }
 
@@ -70,16 +82,6 @@ struct PropertyCell: View {
             Text(isIncluded ? "PARKING_INCLUDED".localized : "PARKING_OPTIONAL".localized)
                 .bodyStyle
         }
-    }
-
-    private func fotoCountTag(count: Int) -> some View {
-        RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
-            .fill(DesignSystem.Colors.tag)
-            .frame(width: 30, height: 30)
-            .overlay {
-                Text(String(count))
-                    .foregroundStyle(.contrastText)
-            }
     }
 
     private var floorAndType: some View {

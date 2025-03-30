@@ -15,6 +15,26 @@
 
 //Coomon
 "IMAGE_LOAD_ERROR" = "Failed to load image";
+"SALE" = "Sale";
+"RENT" = "Rent";
+"FLAT" = "Flat";
+"HOUSE" = "House";
+"VILLA" = "Villa";
+"STUDIO" = "Studio";
+"UNKNOWN" = "Unknown";
+"STATUS_NEW" = "New";
+"STATUS_RENEW" = "Renovated";
+"STATUS_UNKNOWN" = "Unknown";
+"LIVING_ROOM" = "Living Room";
+"VIEWS" = "Views";
+"FACADE" = "Facade";
+"CORRIDOR" = "Corridor";
+"BEDROOM" = "Bedroom";
+"KITCHEN" = "Kitchen";
+"HALL" = "Hall";
+"BATHROOM" = "Bathroom";
+"ENERGY_CERTIFICATION" = "Energy Certification";
+"COMMUNAL_AREAS" = "Communal Areas";
 
 //PropertyCell
 "MONTH" = "/month";
@@ -25,4 +45,17 @@
 "EXTERIOR" = "Exterior";
 "INTERIOR" = "Interior";
 
+// Details Screen
+"VER_MENOS" = "Show less";
+"VER_COMENTARIO_COMPLETO" = "Show full comment";
+"LIFT" = "Lift";
+"NO_LIFT" = "No lift";
+"BOXROOM" = "Boxroom";
+"NO_BOXROOM" = "No boxroom";
+"BATHROOMS" = "bathrooms";
+"COMMUNITY" = "Community";
+"MORE_INFO" = "More info";
+"DESCRIPTION" = "Description";
+"CERTIFICATION" = "Energy Certification";
+"DUPLEX" = "Duplex";
 

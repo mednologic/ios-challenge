@@ -20,9 +20,11 @@ final class NetworkService: NetworkServiceProtocol {
             do {
                 return try JSONDecoder().decode(type, from: data)
             } catch {
+                AlertPresenter.showAlert(title: "ERROR".localized, message: "BAD_RESPONSE_ERROR".localized)
                 throw error
             }
         } else {
+            AlertPresenter.showAlert(title: "ERROR".localized, message: "BAD_RESPONSE_ERROR".localized)
             throw NetworkError.badResponse
         }
     }

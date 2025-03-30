@@ -61,20 +61,6 @@ struct PropertyModel: Codable {
 
 extension PropertyModel {
     var formattedPrice: String {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-
-        let amount = priceInfo.price.amount
-        let formatted = formatter.string(from: NSNumber(value: amount)) ?? "\(amount)"
-
-        return formatted + " " + priceInfo.price.currencySuffix
-    }
-
-    var formattedSize: String {
-        String(format: "%.0f m²", size)
-    }
-
-    var formattedRooms: String {
-        "\(rooms) \("ROOMS".localized)"
+        PriceFormatter.format(amount: priceInfo.price.amount, currencySuffix: priceInfo.price.currencySuffix)
     }
 }

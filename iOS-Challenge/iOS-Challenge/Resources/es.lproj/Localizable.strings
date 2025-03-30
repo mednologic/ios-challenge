@@ -15,6 +15,26 @@
 
 // Common
 "IMAGE_LOAD_ERROR" = "No se ha podido cargar la imagen";
+"SALE" = "Venta";
+"RENT" = "Alquiler";
+"FLAT" = "Piso";
+"HOUSE" = "Casa";
+"VILLA" = "Villa";
+"STUDIO" = "Estudio";
+"UNKNOWN" = "Desconocido";
+"STATUS_NEW" = "Nuevo";
+"STATUS_RENEW" = "Reformado";
+"LIVING_ROOM" = "Salón";
+"VIEWS" = "Vistas";
+"FACADE" = "Fachada";
+"CORRIDOR" = "Pasillo";
+"BEDROOM" = "Dormitorio";
+"KITCHEN" = "Cocina";
+"HALL" = "Recibidor";
+"BATHROOM" = "Baño";
+"ENERGY_CERTIFICATION" = "Certificado energético";
+"COMMUNAL_AREAS" = "Zonas comunes";
+
 
 //PropertyCell
 "MONTH" = "/mes";
@@ -24,3 +44,18 @@
 "PLANTA" = "Planta";
 "EXTERIOR" = "Exterior";
 "INTERIOR" = "Interior";
+
+// Details Screen
+"VER_MENOS" = "Ver menos";
+"VER_COMENTARIO_COMPLETO" = "Ver comentario completo";
+"LIFT" = "Con ascensor";
+"NO_LIFT" = "Sin ascensor";
+"BOXROOM" = "Con trastero";
+"NO_BOXROOM" = "Sin trastero";
+"BATHROOMS" = "baños";
+"COMMUNITY" = "Comunidad";
+"MORE_INFO" = "Más información";
+"DESCRIPTION" = "Descripción";
+"CERTIFICATION" = "Certificación energética";
+"DUPLEX" = "Dúplex";
+

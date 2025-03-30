@@ -7,7 +7,7 @@
 
 extension MoreCharacteristicsModel {
     static let mockMoreCharacteristicsModel = MoreCharacteristicsModel(
-        communityCosts: 330.0,
+        communityCosts: 100.0,
         roomNumber: 3,
         bathNumber: 2,
         exterior: false,
@@ -21,5 +21,5 @@ extension MoreCharacteristicsModel {
         boxroom: false,
         isDuplex: false,
         floor: "2",
-        status: "renew")
+        status: .renew)
 }

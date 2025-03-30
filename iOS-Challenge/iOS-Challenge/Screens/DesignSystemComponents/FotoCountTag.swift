@@ -9,22 +9,24 @@ import SwiftUI
 
 struct FotoCountTag: View {
     enum Constants {
-        static let size: CGFloat = 30
+        static let sizeWidth: CGFloat = 45
+        static let sizeHeight: CGFloat = 30
     }
 
-    let count: Int
+    let total: Int
+    let index: Int
 
     var body: some View {
         RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
             .fill(DesignSystem.Colors.tag)
-            .frame(width: Constants.size, height: Constants.size)
+            .frame(width: Constants.sizeWidth, height: Constants.sizeHeight)
             .overlay {
-                Text("\(count)")
-                    .foregroundStyle(DesignSystem.Colors.contrastText)
+                Text("\(index+1)/\(total)")
+                    .tagStyle
             }
     }
 }
 
 #Preview {
-    FotoCountTag(count: 2)
+    FotoCountTag(total: 12, index: 11)
 }

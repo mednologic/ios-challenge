@@ -22,6 +22,7 @@ struct DesignSystem {
         static let shadowColor = UIColor(named: "ShadowColor") ?? .black
         static let tagColor = UIColor(named: "Tag") ?? .black
         static let actionColorDS = UIColor(named: "Action") ?? .blue
+        static let tagTextColor = UIColor(named: "TagText") ?? .white
 
         // For SwiftUI
         static var background: Color { Color(backgroundUIColor) }
@@ -35,6 +36,7 @@ struct DesignSystem {
         static var shadow: Color { Color(shadowColor) }
         static var tag: Color { Color(tagColor).opacity(0.4) }
         static var actionDS: Color { Color(actionColorDS) }
+        static var tagText: Color { Color(tagTextColor) }
     }
 
     struct Spacing {

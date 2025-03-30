@@ -9,6 +9,8 @@ import SwiftUI
 
 struct PropertyDetails: View {
     @State private var commentExpanded = false
+    @State private var selectedImageIndex = 0
+
     var property: PropertyDetailModel
 
     var body: some View {
@@ -16,19 +18,8 @@ struct PropertyDetails: View {
             DesignSystem.Colors.background.ignoresSafeArea()
             ScrollView {
                 VStack(spacing: DesignSystem.Spacing.m) {
-                    ImageView(urlString: property.multimedia.first?.url)
-                        .overlay(alignment: .bottomTrailing) {
-                            if !property.multimedia.isEmpty {
-                                FotoCountTag(count: property.multimedia.count)
-                                    .padding([.trailing, .bottom], DesignSystem.Spacing.s)
-                            }
+                    SwipeImageGalley(images: property.multimedia)
 
-
-                        }
-                        .overlay(alignment: .topLeading){
-                            OperationTag(operationType: property.operation)
-                                .padding([.leading, .top], DesignSystem.Spacing.s)
-                        }
                     propertyDetailsSection
 
                     Spacer()
@@ -46,53 +37,65 @@ struct PropertyDetails: View {
 
                 Spacer()
 
-                
                 if let communityCost = property.moreCharacteristics.formattedCommunityCosts {
-                    Text(String(communityCost))
+                    Text("\(communityCost) " + property.priceInfo.currencySuffix)
                         .captionStyle
-
                 }
                 Text("COMMUNITY".localized)
                     .captionStyle
-
             }
 
             HStack {
                 PropertyTypeTag(propertyType: property.propertyType)
+
+                OperationTag(operationType: property.operation)
+
                 Text(property.moreCharacteristics.exterior ? "EXTERIOR".localized : "INTERIOR".localized)
+                    .bodyStyle
             }
 
             HStack {
                 Text("\(property.moreCharacteristics.roomNumber) " + "ROOMS".localized)
+                    .bodyStyle
 
                 Text("\(property.moreCharacteristics.bathNumber) " + "BATHROOMS".localized)
+                    .bodyStyle
 
                 Text("\(property.moreCharacteristics.constructedArea) " + "m2")
+                    .bodyStyle
             }
             HStack {
                 Text("\(property.moreCharacteristics.floor) " + "PLANTA".localized)
+                    .bodyStyle
 
                 if property.moreCharacteristics.isDuplex {
                     Text("DUPLEX".localized)
+                        .bodyStyle
                 }
             }
 
             sectionBanner(title: "MORE_INFO".localized)
 
             Text("CERTIFICATION".localized + ":  " +
-                 property.moreCharacteristics.energyCertificationType.uppercased())
+                property.moreCharacteristics.energyCertificationType.uppercased())
+                .bodyStyle
 
             Text(property.moreCharacteristics.lift ? "LIFT".localized : "NO_LIFT".localized)
+                .bodyStyle
 
             Text(property.moreCharacteristics.boxroom ? "BOXROOM".localized : "NO_BOXROOM".localized)
+                .bodyStyle
 
-            Text(property.moreCharacteristics.status) // TODO: traduïr
+            Text(property.moreCharacteristics.status.localized)
+                .bodyStyle
 
             sectionBanner(title: "DESCRIPTION".localized)
-            
+
             VStack(alignment: .leading, spacing: DesignSystem.Spacing.xs) {
                 Text(property.propertyComment)
+                    .bodyStyle
                     .lineLimit(commentExpanded ? nil : 5)
+
 
                 Button(action: {
                     commentExpanded.toggle()

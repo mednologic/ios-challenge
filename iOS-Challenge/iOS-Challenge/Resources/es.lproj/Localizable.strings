@@ -22,6 +22,19 @@
 "VILLA" = "Villa";
 "STUDIO" = "Estudio";
 "UNKNOWN" = "Desconocido";
+"STATUS_NEW" = "Nuevo";
+"STATUS_RENEW" = "Reformado";
+"LIVING_ROOM" = "Salón";
+"VIEWS" = "Vistas";
+"FACADE" = "Fachada";
+"CORRIDOR" = "Pasillo";
+"BEDROOM" = "Dormitorio";
+"KITCHEN" = "Cocina";
+"HALL" = "Recibidor";
+"BATHROOM" = "Baño";
+"ENERGY_CERTIFICATION" = "Certificado energético";
+"COMMUNAL_AREAS" = "Zonas comunes";
+
 
 //PropertyCell
 "MONTH" = "/mes";

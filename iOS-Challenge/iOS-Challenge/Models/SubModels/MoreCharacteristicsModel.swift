@@ -6,6 +6,29 @@
 //
 import SwiftUI
 
+enum PropertyStatus: String, Codable, CaseIterable {
+    case new
+    case renew
+    case unknown
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let rawValue = try container.decode(String.self).lowercased()
+        self = PropertyStatus(rawValue: rawValue) ?? .unknown
+    }
+
+    var localized: String {
+        switch self {
+        case .new:
+            "STATUS_NEW".localized
+        case .renew:
+            "STATUS_RENEW".localized
+        case .unknown:
+            "STATUS_UNKNOWN".localized
+        }
+    }
+}
+
 struct MoreCharacteristicsModel: Codable {
     let communityCosts: Double?
     let roomNumber: Int
@@ -21,7 +44,7 @@ struct MoreCharacteristicsModel: Codable {
     let boxroom: Bool
     let isDuplex: Bool
     let floor: String
-    let status: String
+    let status: PropertyStatus
 }
 
 extension MoreCharacteristicsModel {

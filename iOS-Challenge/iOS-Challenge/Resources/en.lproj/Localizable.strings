@@ -22,6 +22,19 @@
 "VILLA" = "Villa";
 "STUDIO" = "Studio";
 "UNKNOWN" = "Unknown";
+"STATUS_NEW" = "New";
+"STATUS_RENEW" = "Renovated";
+"STATUS_UNKNOWN" = "Unknown";
+"LIVING_ROOM" = "Living Room";
+"VIEWS" = "Views";
+"FACADE" = "Facade";
+"CORRIDOR" = "Corridor";
+"BEDROOM" = "Bedroom";
+"KITCHEN" = "Kitchen";
+"HALL" = "Hall";
+"BATHROOM" = "Bathroom";
+"ENERGY_CERTIFICATION" = "Energy Certification";
+"COMMUNAL_AREAS" = "Communal Areas";
 
 //PropertyCell
 "MONTH" = "/month";

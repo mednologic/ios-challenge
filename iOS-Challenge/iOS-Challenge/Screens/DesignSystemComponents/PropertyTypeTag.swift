@@ -14,10 +14,9 @@ struct PropertyTypeTag: View {
         Group {
             if propertyType != .unknown {
                 Text(propertyType.localized)
-                    .font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
-                    .foregroundColor(.white)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
+                    .tagStyle
+                    .padding(.horizontal, DesignSystem.Spacing.s)
+                    .padding(.vertical, DesignSystem.Spacing.xs)
                     .background(
                         RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
                             .fill(DesignSystem.Colors.tag)

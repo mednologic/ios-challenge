@@ -14,31 +14,35 @@ struct PropertyCell: View {
         ZStack {
             DesignSystem.Colors.accentGray
             VStack(alignment: .leading) {
-                ImageView(urlString: property.thumbnail)
-                    .overlay(alignment: .bottomTrailing) {
-                        if let media = property.multimedia?.images, !media.isEmpty {
-                            FotoCountTag(count: media.count)
-                                .padding([.trailing, .bottom], DesignSystem.Spacing.s)
-                        }
-                    }
+                propertyImages
                     .padding(.bottom, DesignSystem.Spacing.s)
-                propertyDetailsSection
+
+                propertyInfoDetailsSection
                     .padding(.leading, DesignSystem.Spacing.m)
+
                 Spacer()
             }
         }
         .overlay(
             RoundedRectangle(cornerRadius: DesignSystem.CornerRadius.m)
                 .stroke(Color.black, lineWidth: 1)
+                .cardShadow()
         )
         .padding(.horizontal, DesignSystem.Spacing.s)
         .frame(height: 450)
-        .cardShadow()
     }
 
-    private var propertyDetailsSection: some View {
-        VStack(alignment: .leading, spacing: DesignSystem.Spacing.s) {
+    @ViewBuilder
+    private var propertyImages: some View {
+        if let images = property.multimedia?.images {
+            SwipeImageGalley(images: images)
+        } else {
+            ImageView(urlString: property.thumbnail)
+        }
+    }
 
+    private var propertyInfoDetailsSection: some View {
+        VStack(alignment: .leading, spacing: DesignSystem.Spacing.s) {
             Text(property.address)
                 .bodyStyle
 
@@ -64,7 +68,9 @@ struct PropertyCell: View {
             }
             HStack {
                 OperationTag(operationType: property.operation)
+
                 PropertyTypeTag(propertyType: property.propertyType)
+
                 Spacer()
             }
         }

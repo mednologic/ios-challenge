@@ -51,4 +51,9 @@ extension Text {
         font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
             .foregroundColor(DesignSystem.Colors.actionDS)
     }
+
+    var tagStyle: Text {
+        font(.system(size: DSSizesText.caption.rawValue, weight: .regular))
+            .foregroundColor(DesignSystem.Colors.tagText)
+    }
 }

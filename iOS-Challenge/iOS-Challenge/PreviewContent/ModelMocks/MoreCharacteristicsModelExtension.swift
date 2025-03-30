@@ -21,5 +21,5 @@ extension MoreCharacteristicsModel {
         boxroom: false,
         isDuplex: false,
         floor: "2",
-        status: "renew")
+        status: .renew)
 }

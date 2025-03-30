@@ -13,10 +13,19 @@ enum DecoderJSONError: Error {
 }
 
 final class DecoderJSON {
-    public static let shared = DecoderJSON()
+    private let session: URLSession
+
+    init(session: URLSession = .shared) {
+        self.session = session
+    }
 
     func getJSON<JSON>(from url: URL) async throws -> JSON where JSON: Decodable {
-        let (data, _) = try await URLSession.shared.getData(from: url)
+        let (data, response) = try await session.data(from: url)
+
+        guard let httpResponse = response as? HTTPURLResponse,
+              (200..<300).contains(httpResponse.statusCode) else {
+            throw DecoderJSONError.noContent
+        }
 
         do {
             let decodedJSON = try JSONDecoder().decode(JSON.self, from: data)

@@ -10,22 +10,23 @@ import UIKit
 
 public protocol CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] { get set }
-    var tbBarController: UITabBarController { get set }
+    var tabBarController: UITabBarController { get set }
     func start()
 }
 
 class AppCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
     var window: UIWindow
-    let repository = PropietiesDataRepository()
+    private let repository: PropietiesDataRepositoryProtocol
 
-    lazy var tbBarController: UITabBarController = {
+    lazy var tabBarController: UITabBarController = {
         getNavigation()
     }()
 
-    init(window: UIWindow) {
+    init(window: UIWindow, repository: PropietiesDataRepositoryProtocol = PropietiesDataRepository()) {
         self.window = window
-        self.window.rootViewController = tbBarController
+        self.repository = repository
+        self.window.rootViewController = tabBarController
         self.window.makeKeyAndVisible()
     }
 
@@ -47,9 +48,9 @@ class AppCoordinator: CoordinatorProtocol {
         favoritesView.title = "FAVORITES_TITLE".localized
         favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
 
-        tbBarController.tabBar.tintColor = DesignSystem.Colors.tabBarSelectedUIColor
-        tbBarController.tabBar.unselectedItemTintColor = DesignSystem.Colors.tabBarUnselectedUIColor
-        tbBarController.setViewControllers([homeView, favoritesView], animated: true)
+        tabBarController.tabBar.tintColor = DesignSystem.Colors.tabBarSelectedUIColor
+        tabBarController.tabBar.unselectedItemTintColor = DesignSystem.Colors.tabBarUnselectedUIColor
+        tabBarController.setViewControllers([homeView, favoritesView], animated: true)
     }
 
     func setHomeView() -> UINavigationController {

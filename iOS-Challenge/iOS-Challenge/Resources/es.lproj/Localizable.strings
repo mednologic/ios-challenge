@@ -1,3 +1,4 @@
+// Optional Bonus: Localize the app into at least one additional language.
 // TabBar
 "FAVORITES_TITLE" = "Favoritos";
 "HOME_TITLE" = "Inicio";
@@ -58,6 +59,7 @@
 "DESCRIPTION" = "Descripción";
 "CERTIFICATION" = "Certificación energética";
 "DUPLEX" = "Dúplex";
+"LOCALIZATION" = "Localización";
 
 //Favorites View
 "NO_FAVORITES" = "No hay favoritos";

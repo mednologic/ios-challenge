@@ -29,6 +29,10 @@ struct FavoritesListView: View {
                         }
                     }
                 }
+                /// Optional Bonus: Implement pull-to-refresh functionality on the listing screen.
+                .refreshable {
+                    await viewModel.loadFavorites()
+                }
                 .background(DesignSystem.Colors.background.ignoresSafeArea())
             }
         }

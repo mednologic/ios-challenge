@@ -10,6 +10,7 @@ import SwiftUI
 struct PropertyDetails: View {
     @State private var commentExpanded = false
     @State private var selectedImageIndex = 0
+    @State private var showMap = false
 
     var property: PropertyDetailModel
 
@@ -82,6 +83,18 @@ struct PropertyDetails: View {
             sectionBanner(title: "DESCRIPTION".localized)
 
             descriptionContent
+
+            sectionBanner(title: "LOCALIZATION".localized)
+
+            MapView(latitude: property.ubication.latitude, longitude: property.ubication.longitude)
+                .frame(height: 200)
+                .onTapGesture {
+                    showMap = true
+                }
+            
+        }
+        .navigationDestination(isPresented: $showMap) {
+            MapView(latitude: property.ubication.latitude, longitude: property.ubication.longitude)
         }
     }
 

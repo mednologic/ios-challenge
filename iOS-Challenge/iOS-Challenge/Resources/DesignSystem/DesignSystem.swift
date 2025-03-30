@@ -8,6 +8,8 @@
 import SwiftUI
 import UIKit
 
+/// Optional Bonus: Add support for Dark Mode to ensure the app looks great in all environments.
+/// with this DesignSystem and the assets, we can easily switch between light and darkmode
 struct DesignSystem {
     struct Colors {
         // For UIkit

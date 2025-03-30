@@ -11,6 +11,9 @@ enum PersistenceFile: String {
     case favorites = "Favorites.json"
 }
 
+/// Optional Bonus: Implement persistent storage using Core Data, SwiftData, Realm, or any other suitable solution.
+/// As the project must be on swift 16.0 i can't use SwiftData and the easier way to migrate to swiftData is from JSON files.
+/// Reusable
 final class PersistenceManager {
     static let shared = PersistenceManager()
 

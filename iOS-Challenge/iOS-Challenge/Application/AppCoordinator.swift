@@ -19,9 +19,7 @@ class AppCoordinator: CoordinatorProtocol {
     var window: UIWindow
     private let repository: PropietiesDataRepositoryProtocol
 
-    lazy var tabBarController: UITabBarController = {
-        getNavigation()
-    }()
+    lazy var tabBarController: UITabBarController = UITabBarController()
 
     init(window: UIWindow, repository: PropietiesDataRepositoryProtocol = PropietiesDataRepository()) {
         self.window = window
@@ -30,21 +28,16 @@ class AppCoordinator: CoordinatorProtocol {
         self.window.makeKeyAndVisible()
     }
 
-    private func getNavigation() -> UITabBarController {
-        let navigator = UITabBarController()
-        return navigator
-    }
-
     func start() {
         setTabBar()
     }
 
     func setTabBar() {
-        let homeView = setHomeView()
+        let homeView = makeHomeView()
         homeView.title = "HOME_TITLE".localized
         homeView.tabBarItem.image = UIImage(systemName: "house.fill")
 
-        let favoritesView = setFavoritesView()
+        let favoritesView = makeFavoritesView()
         favoritesView.title = "FAVORITES_TITLE".localized
         favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
 
@@ -53,7 +46,7 @@ class AppCoordinator: CoordinatorProtocol {
         tabBarController.setViewControllers([homeView, favoritesView], animated: true)
     }
 
-    func setHomeView() -> UINavigationController {
+    func makeHomeView() -> UINavigationController {
         let navigationController = UINavigationController()
         let view = HomeViewController(repository: repository)
 
@@ -62,7 +55,7 @@ class AppCoordinator: CoordinatorProtocol {
         return navigationController
     }
 
-    func setFavoritesView() -> UINavigationController {
+    func makeFavoritesView() -> UINavigationController {
         let navigationController = UINavigationController()
         let view = FavoritesViewController()
 

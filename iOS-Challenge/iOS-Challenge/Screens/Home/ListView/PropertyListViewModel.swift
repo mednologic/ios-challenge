@@ -24,7 +24,7 @@ class PropertyListViewModel: ObservableObject {
         propietiesList = try await repository.fetchPropietiesList()
     }
 
-    func fetchDetail(for property: PropertyModel) async throws -> PropertyDetailModel {
+    func fetchDetail() async throws -> PropertyDetailModel {
         try await repository.fecthPropietyDetail()
     }
 }

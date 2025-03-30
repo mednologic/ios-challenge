@@ -33,7 +33,7 @@ enum OperationType: String, Codable, CaseIterable {
     }
 }
 
-struct PropertyModel: Codable {
+struct PropertyModel: Codable, Equatable {
     let propertyCode: String
     let thumbnail: String
     let floor: String?
@@ -57,6 +57,10 @@ struct PropertyModel: Codable {
     let multimedia: MultimediaModel?
     let features: FeaturesModel?
     let parkingSpace: ParkingSpaceModel?
+
+    static func == (lhs: PropertyModel, rhs: PropertyModel) -> Bool {
+        return lhs.propertyCode == rhs.propertyCode
+    }
 }
 
 extension PropertyModel {

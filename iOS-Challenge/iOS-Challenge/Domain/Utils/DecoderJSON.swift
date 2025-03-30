@@ -12,8 +12,8 @@ enum DecoderJSONError: Error {
     case decodingError(Error)
 }
 
-final class DecodersJSON {
-    public static let shared = DecodersJSON()
+final class DecoderJSON {
+    public static let shared = DecoderJSON()
 
     func getJSON<JSON>(from url: URL) async throws -> JSON where JSON: Decodable {
         let (data, _) = try await URLSession.shared.getData(from: url)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PropertyCell: View {
     var property: PropertyModel
+    @State private var isFavorited: Bool = false
 
     var body: some View {
         ZStack {
@@ -30,6 +31,15 @@ struct PropertyCell: View {
         )
         .padding(.horizontal, DesignSystem.Spacing.s)
         .frame(height: 450)
+        .onAppear {
+            Task {
+                do {
+                    isFavorited = try await PersistenceManager.shared.isOnPersistence(property, in: .favorites)
+                } catch {
+                    isFavorited = false
+                }
+            }
+        }
     }
 
     @ViewBuilder
@@ -72,6 +82,25 @@ struct PropertyCell: View {
                 PropertyTypeTag(propertyType: property.propertyType)
 
                 Spacer()
+                Image(systemName: isFavorited ? "heart.fill" : "heart")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .foregroundStyle(.red)
+                    .frame(width: 30, height: 30)
+                    .padding(.trailing, DesignSystem.Spacing.s)
+                    .onTapGesture {
+                        Task {
+                            if isFavorited {
+                                try await PersistenceManager.shared.removeToPersistence(property, from: .favorites)
+
+                            } else {
+                                try await PersistenceManager.shared.addToPersistence(property, to: .favorites)
+                            }
+                            isFavorited.toggle()
+                        }
+                    }
+                    .padding(.bottom, DesignSystem.Spacing.s)
+                    .padding(.trailing, DesignSystem.Spacing.s)
             }
         }
     }

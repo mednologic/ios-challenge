@@ -1,56 +1,56 @@
-# idealista iOS Challenge
-The idealista iOS team is on the lookout for a new teammate! We’re on a mission to find someone who’s ready to dive into the exciting (and sometimes wild) world of iOS development. From building cool new features to squashing bugs, crafting pixel-perfect UIs, and making sure everything runs smoothly and securely — we’ve got plenty to keep you on your toes.
+# iOS Challenge Project
 
-Think you’re up for the challenge? We could really use your skills to create the next generation of awesome features that will take our app to new heights. Whether it’s making sure our users have a seamless experience or pushing the limits of performance, we need someone who’s ready to jump in and make a real impact.
+## Bonus opcionales cumplidos + extras
+> Para encontrar fácilmente las tareas bonus, revisar los comentarios marcados con `/// Optional Bonus` en el código.
 
-Here at idealista, we’re all about clean, maintainable code and solid testable components. If you love turning great ideas into reality, this might just be the perfect challenge for you!
+## Características
 
-&nbsp;
+- **Pantalla de Listado:** Muestra una colección de anuncios con un diseño limpio y adaptable.
+- **Pantalla de Detalle:** Permite ver la información completa de cada anuncio, incluyendo imágenes, descripción y datos adicionales.
+- **Favoritos:** Los usuarios pueden marcar anuncios como favoritos, y se guarda la fecha en que se realizaron.
+- **Integración con API:** Los datos se obtienen a través de endpoints predefinidos.
+- **Diseño Responsive:** La app se adapta a diferentes tamaños de pantalla (iPhone e iPad).
+- **Integración SwiftUI:** Se utilizan componentes SwiftUI junto con UIKit para mejorar la experiencia de usuario.
+- **Soporte para Modo Oscuro:** La app se ve genial en entornos claros y oscuros.
+- **Localización:** Base preparada para soportar múltiples idiomas (español por defecto e inglés).
 
-### 🚀 Getting Started
-1. Read the **minimum requirements**.
-2. Fork this repository.
-3. Start coding and have fun!
+## Características adicionales destacadas
 
-&nbsp;
+- **Arquitectura Modular:** El proyecto está organizado en modelos, vistas, viewModels y servicios, lo que facilita la escalabilidad y el mantenimiento.
+- **Código Limpio y Testable:** Se presta especial atención a la escritura de código limpio, con componentes reutilizables y testeables.
+- **Integración de UIKit y SwiftUI:** Se aprovechan las ventajas de ambos frameworks para construir una experiencia de usuario robusta y adaptable.
+- **Uso de Concurrency (async/await):** Se utiliza la programación asíncrona de Swift para gestionar llamadas a la API y otras tareas, mejorando el rendimiento y la capacidad de respuesta de la app.
 
-### 📱 Task
-Build a small app that allows users to browse through a list of ads and view ad details on a separate screen.
+## Compatibilidad
 
-&nbsp;
+- **iOS:** 16 hasta la versión actual
 
-### 🌐 API
-- List: [https://idealista.github.io/ios-challenge/list.json](https://idealista.github.io/ios-challenge/list.json)  
-- Detail: [https://idealista.github.io/ios-challenge/detail.json](https://idealista.github.io/ios-challenge/detail.json) *Please note: the response is always the same*.
+## Estructura del Proyecto
 
-&nbsp;
+- **Modelos:** Define las estructuras de datos (anuncios, detalles, etc.).
+- **Vistas:** Contiene tanto vistas UIKit como SwiftUI (pantallas de listado, detalle, celdas, etc.).
+- **ViewModels:** Gestionan la lógica de negocio y la vinculación de datos.
+- **Servicios:** Manejan las llamadas a la API, la persistencia y otras utilidades.
+- **Design System:** Tokens de diseño (colores, espaciados, tipografía, etc.) para mantener la coherencia visual.
+- **AppCoordinator:** Coordina la navegación de UIKit con el TabBar.
+- **Capa de red:** Gestión de las llamadas a la API.
+- **Managers genéricos:** Clases utilitarias para manejo de imágenes, persistencia, etc.
 
-### ✅ Minimum Requirements
-- The app must run on **Xcode 16.0** and be compatible with **iOS 16** through **iOS 18**.
-- The app should include at least **two screens**:
-  - A **listing screen** displaying a collection of ads.
-  - A **detail screen** for viewing individual ad information.
-- The code must be written in **Swift** and use the **UIKit** framework.
-- Implement functionality to allow users to **favorite ads**.
-  - If an ad is favorited, display the **date** it was favorited.
-- Use the provided **API endpoints** to fetch and display ad data.
-- Only use **third-party libraries** if absolutely necessary. We value clean and lightweight implementations.
+## Preview Content & Mocks
 
-&nbsp;
+El proyecto incluye una carpeta específica para contenidos de vista previa y mocks, que se utilizan tanto en las vistas de SwiftUI Preview como en los tests unitarios. Esta carpeta permite usar datos simulados y assets de prueba sin interferir con el producto final.  
+Mediante la configuración del proyecto, **todo lo que se encuentre en esta carpeta se excluye de las builds de release**, garantizando que el paquete final de la app no incluya información o recursos de prueba.
 
-### 🎁 Optional Bonus Tasks (For extra kudos!)
-1. Implement **pull-to-refresh** functionality on the listing screen.
-2. **Localize** the app into at least one additional language.
-3. Add **tests** for key components of the app.
-4. Add support for **Dark Mode** to ensure the app looks great in all environments.
-5. Incorporate some **SwiftUI** code alongside UIKit.
-6. Implement **persistent storage** using Core Data, SwiftData, Realm, or any other suitable solution.
-7. Add **iPad support** with a responsive layout.
-8. Show the location of the ad using a **map** view, indicating its position.
-9. Feel free to go beyond the requirements and **improve the app** in any way you think is best — we love creativity!
+Esta estrategia facilita el desarrollo y el testing sin comprometer la integridad del build de producción.
 
-&nbsp;
+## Testing
 
-### 🎉 Once You’ve Finished
-1. Email us at [tlfernandez@idealista.com](mailto:tlfernandez@idealista.com) with your repository link you'd like our iOS team to review, or send the project folder (including the `.git` directory).
-2. Celebrate with a beer after a well done job! 🍺
+El proyecto incorpora pruebas utilizando tanto los métodos clásicos de XCTest como el nuevo framework **swiftTesting**. Esto permite:
+
+- **Tests:** Se han escrito pruebas utilizando XCTest para validar la funcionalidad de la capa de red, la persistencia y otros componentes clave.
+- **Tests con SwiftTesting:** Se aprovecha la sintaxis moderna de *swiftTesting* para escribir tests de forma más expresiva y concisa, mejorando la legibilidad y facilitando la detección de errores.
+- **Cobertura de Código:** Se ha configurado la cobertura de tests para asegurar la calidad y robustez del código.
+- **Mocks y Stubs:** Se utilizan mocks y stubs (ubicados en la carpeta de Preview Content & Mocks) para simular comportamientos y validar funcionalidades sin depender de servicios externos.
+
+
+¡Espero que les guste! 🎉

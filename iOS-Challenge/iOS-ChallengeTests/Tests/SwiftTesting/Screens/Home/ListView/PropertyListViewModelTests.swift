@@ -8,6 +8,7 @@
 @testable import iOS_Challenge
 import Testing
 
+/// Optional Bonus: new way to do the testing
 struct PropertyListViewModelTests {
     enum TestError: Error, Equatable {
         case fakeError

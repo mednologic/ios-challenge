@@ -17,16 +17,32 @@ struct SwipeImageGalley: View {
             ForEach(images.indices, id: \.self) { index in
                 ImageView(urlString: images[index].url)
                     .overlay(alignment: .bottomTrailing) {
-                        if !images.isEmpty {
-                            FotoCountTag(total: images.count, index: selectedImageIndex)
-                                .padding([.trailing, .bottom], DesignSystem.Spacing.s)
-                        }
+                        photoCountTagView()
                     }
                     .tag(index)
+                    .overlay(alignment: .topLeading) {
+                        roomTagView(for: index)
+                    }
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         .frame(height: 300)
+    }
+
+    @ViewBuilder
+    private func photoCountTagView() -> some View {
+        if !images.isEmpty {
+            FotoCountTag(total: images.count, index: selectedImageIndex)
+                .padding([.trailing, .bottom], DesignSystem.Spacing.s)
+        }
+    }
+
+    @ViewBuilder
+    private func roomTagView(for index: Int) -> some View {
+        if images.indices.contains(index), images[index].tag != .unknown {
+            TextTag(tagText: images[index].tag.localized)
+                .padding([.leading, .top], DesignSystem.Spacing.s)
+        }
     }
 }
 

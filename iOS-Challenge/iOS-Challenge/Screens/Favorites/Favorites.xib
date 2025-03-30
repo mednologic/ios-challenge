@@ -6,11 +6,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController">
             <connections>
+                <outlet property="FavoritesListContainer" destination="YAL-Wo-nCX" id="KSV-xQ-Ipb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jZQ-y7-MRW"/>
             </connections>
         </placeholder>
@@ -18,14 +20,29 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YAL-Wo-nCX" userLabel="FavoritesList">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                </view>
+            </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" name="Background"/>
-            <point key="canvasLocation" x="-10" y="21"/>
+            <constraints>
+                <constraint firstItem="YAL-Wo-nCX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="CvN-sg-PtZ"/>
+                <constraint firstItem="YAL-Wo-nCX" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fcw-i0-U6c"/>
+                <constraint firstItem="YAL-Wo-nCX" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="i4t-B9-aV5"/>
+                <constraint firstItem="YAL-Wo-nCX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="slK-kL-Ecw"/>
+            </constraints>
+            <point key="canvasLocation" x="-11.450381679389313" y="20.422535211267608"/>
         </view>
     </objects>
     <resources>
         <namedColor name="Background">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

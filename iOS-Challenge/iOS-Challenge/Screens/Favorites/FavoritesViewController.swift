@@ -5,9 +5,12 @@
 //  Created by josepL on 29/3/25.
 //
 
-import UIKit
+import SwiftUI
 
 final class FavoritesViewController: UIViewController {
+
+    @IBOutlet weak var FavoritesListContainer: UIView!
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -19,5 +22,28 @@ final class FavoritesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = DesignSystem.Colors.backgroundUIColor
+        setUpFavoritesList()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+
+    private func setUpFavoritesList() {
+        let viewModel = FavoritesListViewModel()
+        let swiftUIView = FavoritesListView(viewModel: viewModel)
+
+        let hostingController = UIHostingController(rootView: swiftUIView)
+        addChild(hostingController)
+        hostingController.view.frame = FavoritesListContainer.bounds
+        hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        FavoritesListContainer.addSubview(hostingController.view)
+        hostingController.didMove(toParent: self)
     }
 }

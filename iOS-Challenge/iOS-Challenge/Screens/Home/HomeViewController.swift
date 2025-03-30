@@ -5,7 +5,6 @@
 //  Created by josepL on 29/3/25.
 //
 
-import UIKit
 import SwiftUI
 
 final class HomeViewController: UIViewController {
@@ -15,7 +14,7 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @IBOutlet weak var ListView: UIView!
+    @IBOutlet weak var ListViewContainer: UIView!
 
     init(repository: PropietiesDataRepositoryProtocol) {
         self.repository = repository
@@ -44,9 +43,9 @@ final class HomeViewController: UIViewController {
 
         let hostingController = UIHostingController(rootView: swiftUIView)
         addChild(hostingController)
-        hostingController.view.frame = ListView.bounds
+        hostingController.view.frame = ListViewContainer.bounds
         hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        ListView.addSubview(hostingController.view)
+        ListViewContainer.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
     }
 }

@@ -35,7 +35,6 @@ struct PropertyListView: View {
                 }
                 .padding(.top, DesignSystem.Spacing.m)
             }
-
             .navigationDestination(isPresented: $showDetails) {
                 if let detail = selectedDetail {
                     PropertyDetails(property: detail)

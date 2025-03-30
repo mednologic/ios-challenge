@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PropertyCell: View {
     var property: PropertyModel
+    @State private var isFavorited: Bool = false
 
     var body: some View {
         ZStack {
@@ -30,6 +31,16 @@ struct PropertyCell: View {
         )
         .padding(.horizontal, DesignSystem.Spacing.s)
         .frame(height: 450)
+        .onAppear {
+            Task {
+                do {
+                    isFavorited = try await PersistenceManager.shared.isOnPersistence(property.favoritedProperty(),
+                                                                                      in: .favorites)
+                } catch {
+                    isFavorited = false
+                }
+            }
+        }
     }
 
     @ViewBuilder
@@ -72,6 +83,26 @@ struct PropertyCell: View {
                 PropertyTypeTag(propertyType: property.propertyType)
 
                 Spacer()
+                Image(systemName: isFavorited ? "heart.fill" : "heart")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .foregroundStyle(.red)
+                    .frame(width: 30, height: 30)
+                    .padding(.trailing, DesignSystem.Spacing.s)
+                    .onTapGesture {
+                        Task {
+                            if isFavorited {
+                                try await PersistenceManager.shared.removeToPersistence(property.favoritedProperty(),
+                                                                                        from: .favorites)
+
+                            } else {
+                                try await PersistenceManager.shared.addToPersistence(property.favoritedProperty(),
+                                                                                     to: .favorites)
+                            }
+                            isFavorited.toggle()
+                        }
+                    }
+                    .padding([.bottom,.trailing], DesignSystem.Spacing.s)
             }
         }
     }

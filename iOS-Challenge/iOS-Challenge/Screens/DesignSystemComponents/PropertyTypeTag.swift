@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PropertyTypeTag: View {
+    // TODO: hacer un tag generico para dominarlos a todos :)
     let propertyType: PropertyType
 
     var body: some View {

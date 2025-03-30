@@ -76,6 +76,32 @@ struct PropertyDetails: View {
 
             sectionBanner(title: "MORE_INFO".localized)
 
+            moreInfoLabels
+                .padding(.leading, DesignSystem.Spacing.m)
+
+            sectionBanner(title: "DESCRIPTION".localized)
+
+            descriptionContent
+        }
+    }
+
+    private var descriptionContent: some View {
+        VStack(alignment: .leading, spacing: DesignSystem.Spacing.xs) {
+            Text(property.propertyComment)
+                .bodyStyle
+                .lineLimit(commentExpanded ? nil : 5)
+
+            Button(action: {
+                commentExpanded.toggle()
+            }) {
+                Text(commentExpanded ? "VER_MENOS".localized : "VER_COMENTARIO_COMPLETO".localized)
+                    .actionStyle
+            }
+        }
+    }
+
+    private var moreInfoLabels: some View {
+        VStack(alignment: .leading) {
             Text("CERTIFICATION".localized + ":  " +
                 property.moreCharacteristics.energyCertificationType.uppercased())
                 .bodyStyle
@@ -88,22 +114,6 @@ struct PropertyDetails: View {
 
             Text(property.moreCharacteristics.status.localized)
                 .bodyStyle
-
-            sectionBanner(title: "DESCRIPTION".localized)
-
-            VStack(alignment: .leading, spacing: DesignSystem.Spacing.xs) {
-                Text(property.propertyComment)
-                    .bodyStyle
-                    .lineLimit(commentExpanded ? nil : 5)
-
-
-                Button(action: {
-                    commentExpanded.toggle()
-                }) {
-                    Text(commentExpanded ? "VER_MENOS".localized : "VER_COMENTARIO_COMPLETO".localized)
-                        .actionStyle
-                }
-            }
         }
     }
 

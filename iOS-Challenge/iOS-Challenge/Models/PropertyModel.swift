@@ -67,4 +67,17 @@ extension PropertyModel {
     var formattedPrice: String {
         PriceFormatter.format(amount: priceInfo.price.amount, currencySuffix: priceInfo.price.currencySuffix)
     }
+
+    func favoritedProperty() -> FavoritedProperty {
+        FavoritedProperty(property: self, favoriteDate: Date.now)
+    }
+}
+
+struct FavoritedProperty: Codable, Equatable {
+    let property: PropertyModel
+    let favoriteDate: Date
+
+    static func == (lhs: FavoritedProperty, rhs: FavoritedProperty) -> Bool {
+        return lhs.property.propertyCode == rhs.property.propertyCode
+    }
 }

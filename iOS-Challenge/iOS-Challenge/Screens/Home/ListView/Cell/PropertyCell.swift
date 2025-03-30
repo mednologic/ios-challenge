@@ -34,7 +34,8 @@ struct PropertyCell: View {
         .onAppear {
             Task {
                 do {
-                    isFavorited = try await PersistenceManager.shared.isOnPersistence(property, in: .favorites)
+                    isFavorited = try await PersistenceManager.shared.isOnPersistence(property.favoritedProperty(),
+                                                                                      in: .favorites)
                 } catch {
                     isFavorited = false
                 }
@@ -91,16 +92,18 @@ struct PropertyCell: View {
                     .onTapGesture {
                         Task {
                             if isFavorited {
-                                try await PersistenceManager.shared.removeToPersistence(property, from: .favorites)
+                                try await PersistenceManager.shared.removeToPersistence(property.favoritedProperty(),
+                                                                                        from: .favorites)
 
                             } else {
-                                try await PersistenceManager.shared.addToPersistence(property, to: .favorites)
+                                try await PersistenceManager.shared.addToPersistence(property.favoritedProperty(),
+                                                                                     to: .favorites)
                             }
+                            PersistenceManager.shared.debugPrintPersistence(for: .favorites)
                             isFavorited.toggle()
                         }
                     }
-                    .padding(.bottom, DesignSystem.Spacing.s)
-                    .padding(.trailing, DesignSystem.Spacing.s)
+                    .padding([.bottom,.trailing], DesignSystem.Spacing.s)
             }
         }
     }

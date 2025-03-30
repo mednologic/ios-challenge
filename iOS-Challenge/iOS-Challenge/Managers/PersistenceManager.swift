@@ -72,21 +72,4 @@ final class PersistenceManager {
             throw DecoderJSONError.noContent
         }
     }
-
-
-    // TODO: delete
-    func debugPrintPersistence(for file: PersistenceFile) {
-        let url = fileURL(for: file)
-        do {
-            let data = try Data(contentsOf: url)
-            if let string = String(data: data, encoding: .utf8) {
-                print("Contenido de \(file.rawValue):\n\(string)")
-            } else {
-                print("No se pudo convertir data a String")
-            }
-        } catch {
-            print("Error al leer \(file.rawValue): \(error)")
-        }
-    }
 }
-

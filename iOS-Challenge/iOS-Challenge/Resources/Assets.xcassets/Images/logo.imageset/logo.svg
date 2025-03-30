@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512"
+     xmlns="http://www.w3.org/2000/svg">
+  <rect width="512" height="512" fill="#FFFFFF"/>
+  
+  <path d="M156 200 L256 100 L356 200 V350 H156 Z"
+        fill="#333333"
+        stroke="#FFED00"
+        stroke-width="10"/>
+  
+  <text x="256" y="420"
+        font-size="64"
+        fill="#333333"
+        text-anchor="middle"
+        font-family="sans-serif">
+    HomeForU
+  </text>
+</svg>

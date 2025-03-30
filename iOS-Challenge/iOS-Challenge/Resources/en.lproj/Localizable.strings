@@ -1,0 +1,66 @@
+// Optional Bonus: Localize the app into at least one additional language.
+// TabBar
+"FAVORITES_TITLE" = "Favorites";
+"HOME_TITLE" = "Home";
+
+// HomeScreen
+"WELCOME_HOME_TITLE" = "Bienvenido a HomeForU";
+
+// Errors
+"ERROR" = "Ups!, there was an error";
+"CONNECTION_ERROR" = "A connection problem has occurred. Please check your network.";
+"BAD_RESPONSE_ERROR" = "Could not retrieve the information. Please try again later.";
+"NO_CONTENT_ERROR" = "No content available at this moment.";
+"DECODING_ERROR" = "There was an issue processing the information. Please try again.";
+"UNKNOWN_ERROR" = "Something went wrong. Please try again later.";
+
+//Coomon
+"IMAGE_LOAD_ERROR" = "Failed to load image";
+"SALE" = "Sale";
+"RENT" = "Rent";
+"FLAT" = "Flat";
+"HOUSE" = "House";
+"VILLA" = "Villa";
+"STUDIO" = "Studio";
+"UNKNOWN" = "Unknown";
+"STATUS_NEW" = "New";
+"STATUS_RENEW" = "Renovated";
+"STATUS_UNKNOWN" = "Unknown";
+"LIVING_ROOM" = "Living Room";
+"VIEWS" = "Views";
+"FACADE" = "Facade";
+"CORRIDOR" = "Corridor";
+"BEDROOM" = "Bedroom";
+"KITCHEN" = "Kitchen";
+"HALL" = "Hall";
+"BATHROOM" = "Bathroom";
+"ENERGY_CERTIFICATION" = "Energy Certification";
+"COMMUNAL_AREAS" = "Communal Areas";
+
+//PropertyCell
+"MONTH" = "/month";
+"PARKING_INCLUDED" = "Parking included";
+"PARKING_OPTIONAL" = "Optional parking";
+"ROOMS" = "rooms";
+"PLANTA" = "Floor";
+"EXTERIOR" = "Exterior";
+"INTERIOR" = "Interior";
+"SAVED_ON" = "Saved on ";
+
+// Details Screen
+"VER_MENOS" = "Show less";
+"VER_COMENTARIO_COMPLETO" = "Show full comment";
+"LIFT" = "Lift";
+"NO_LIFT" = "No lift";
+"BOXROOM" = "Boxroom";
+"NO_BOXROOM" = "No boxroom";
+"BATHROOMS" = "bathrooms";
+"COMMUNITY" = "Community";
+"MORE_INFO" = "More info";
+"DESCRIPTION" = "Description";
+"CERTIFICATION" = "Energy Certification";
+"DUPLEX" = "Duplex";
+"LOCALIZATION" = "Localization";
+
+//Favorites View
+"NO_FAVORITES" = "No favorites";

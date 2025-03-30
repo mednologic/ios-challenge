@@ -13,8 +13,9 @@ struct PropertyCell: View {
         static let heightIpad: CGFloat = 550
     }
 
-    @State private var isFavorited: Bool = false
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @State private var isFavorited: Bool = false
+    @State private var favoriteDate: Date? = nil
 
     var property: PropertyModel
 
@@ -43,6 +44,9 @@ struct PropertyCell: View {
                 do {
                     isFavorited = try await PersistenceManager.shared.isOnPersistence(property.favoritedProperty(),
                                                                                       in: .favorites)
+                    if isFavorited {
+                        favoriteDate = property.favoritedProperty().favoriteDate
+                    }
                 } catch {
                     isFavorited = false
                 }
@@ -107,9 +111,17 @@ struct PropertyCell: View {
                                                                                      to: .favorites)
                             }
                             isFavorited.toggle()
+                            favoriteDate = isFavorited ? property.favoritedProperty().favoriteDate : nil
                         }
                     }
                     .padding([.bottom, .trailing], DesignSystem.Spacing.s)
+            }
+            if let favoriteDate {
+                HStack {
+                    Text("SAVED_ON".localized + formattedDate(favoriteDate))
+                        .captionStyle
+                        .padding(.trailing, DesignSystem.Spacing.m)
+                }
             }
         }
     }
@@ -133,6 +145,12 @@ struct PropertyCell: View {
                     .bodyStyle
             }
         }
+    }
+
+    private func formattedDate(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
+        return formatter.string(from: date)
     }
 }
 

@@ -13,13 +13,13 @@ extension FavoritesListViewModel {
         let mockPropertySale: PropertyModel = .mockPropertyModelSale
 
         let viewModel = FavoritesListViewModel()
-        viewModel.propietiesFavoriteList = [mockPropertyRent, mockPropertySale]
+        viewModel.propertiesFavoriteList = [mockPropertyRent, mockPropertySale]
         return viewModel
     }
 
     static var empty: FavoritesListViewModel {
         let vm = FavoritesListViewModel()
-        vm.propietiesFavoriteList = []
+        vm.propertiesFavoriteList = []
         return vm
     }
 }

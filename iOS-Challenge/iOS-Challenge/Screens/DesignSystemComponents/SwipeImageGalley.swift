@@ -8,9 +8,13 @@
 import SwiftUI
 
 struct SwipeImageGalley: View {
-    let images: [ImageRepresentableProtocol]
+    enum Constants {
+        static let heightIphone: CGFloat = 300
+    }
 
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var selectedImageIndex = 0
+    let images: [ImageRepresentableProtocol]
 
     var body: some View {
         TabView(selection: $selectedImageIndex) {
@@ -26,7 +30,7 @@ struct SwipeImageGalley: View {
             }
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
-        .frame(height: 300)
+        .frame(height: horizontalSizeClass == .regular ? nil : Constants.heightIphone)
     }
 
     @ViewBuilder

@@ -10,13 +10,14 @@ import SwiftUI
 struct ImageView: View {
     enum Constants {
         static let heightIphone: CGFloat = 300
+        static let heightIpad: CGFloat = 500
     }
 
-    let urlString: String?
-
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var image: UIImage?
     @State private var isLoading = true
 
+    let urlString: String?
     private let imageManager = ImageManager()
 
     var body: some View {
@@ -32,7 +33,7 @@ struct ImageView: View {
             }
         }
         .clipped()
-        .frame(height: Constants.heightIphone)
+        .frame(height: horizontalSizeClass == .regular ? Constants.heightIpad : Constants.heightIphone)
         .cornerRadius(DesignSystem.CornerRadius.m)
         .task {
             await loadImage()

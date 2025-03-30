@@ -8,8 +8,15 @@
 import SwiftUI
 
 struct PropertyCell: View {
-    var property: PropertyModel
+    enum Constants {
+        static let heightIphone: CGFloat = 450
+        static let heightIpad: CGFloat = 550
+    }
+
     @State private var isFavorited: Bool = false
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+
+    var property: PropertyModel
 
     var body: some View {
         ZStack {
@@ -30,7 +37,7 @@ struct PropertyCell: View {
                 .cardShadow()
         )
         .padding(.horizontal, DesignSystem.Spacing.s)
-        .frame(height: 450)
+        .frame(height: horizontalSizeClass == .regular ? Constants.heightIpad : Constants.heightIphone)
         .onAppear {
             Task {
                 do {

@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+/// Optional bonus: Data layer for calls
 protocol NetworkServiceProtocol {
     func getJSONToModel<T>(request: URLRequest, type: T.Type) async throws -> T where T: Codable
 }

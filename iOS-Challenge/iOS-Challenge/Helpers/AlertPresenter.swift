@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Optional bonus: Alerts for the system
 final class AlertPresenter {
     static func showAlert(title: String, message: String,
                           buttonTitle: String = "OK".localized, dismissHandler: (() -> Void)? = nil) {

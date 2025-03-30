@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Optional Bonus: Incorporate some SwiftUI code alongside UIKit.
 struct PropertyListView: View {
     @ObservedObject var viewModel: PropertyListViewModel
     @State private var showDetails = false
@@ -34,6 +35,14 @@ struct PropertyListView: View {
                     }
                 }
                 .padding(.top, DesignSystem.Spacing.m)
+            }
+            /// Optional Bonus: Implement pull-to-refresh functionality on the listing screen.
+            .refreshable {
+                do {
+                    try await viewModel.fetchList()
+                } catch {
+                    AlertPresenter.showAlert(title: "ERROR".localized, message: "BAD_RESPONSE_ERROR".localized)
+                }
             }
             .navigationDestination(isPresented: $showDetails) {
                 if let detail = selectedDetail {

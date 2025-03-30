@@ -18,6 +18,12 @@ enum ImageTag: String, Codable, CaseIterable {
     case energyCertification
     case communalAreas = "communalareas"
 
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let raw = try container.decode(String.self)
+        self = ImageTag(rawValue: raw) ?? .unknown
+    }
+
     var localized: String {
         switch self {
         case .livingRoom:

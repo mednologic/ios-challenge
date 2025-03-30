@@ -7,14 +7,13 @@
 
 import SwiftUI
 
-struct PropertyTypeTag: View {
-    // TODO: hacer un tag generico para dominarlos a todos :)
-    let propertyType: PropertyType
+struct TextTag: View {
+    let tagText: String
 
     var body: some View {
         Group {
-            if propertyType != .unknown {
-                Text(propertyType.localized)
+            if tagText != "unknown" {
+                Text(tagText)
                     .tagStyle
                     .padding(.horizontal, DesignSystem.Spacing.s)
                     .padding(.vertical, DesignSystem.Spacing.xs)
@@ -30,9 +29,5 @@ struct PropertyTypeTag: View {
 }
 
 #Preview {
-    PropertyTypeTag(propertyType: .flat)
-    PropertyTypeTag(propertyType: .house)
-    PropertyTypeTag(propertyType: .studio)
-    PropertyTypeTag(propertyType: .villa)
-    PropertyTypeTag(propertyType: .unknown)
+    TextTag(tagText: "Flat")
 }

@@ -78,9 +78,9 @@ struct PropertyCell: View {
                 floorAndType
             }
             HStack {
-                OperationTag(operationType: property.operation)
+                TextTag(tagText: property.operation.localized)
 
-                PropertyTypeTag(propertyType: property.propertyType)
+                TextTag(tagText: property.propertyType.localized)
 
                 Spacer()
                 Image(systemName: isFavorited ? "heart.fill" : "heart")

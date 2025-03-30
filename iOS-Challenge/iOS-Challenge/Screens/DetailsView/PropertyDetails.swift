@@ -47,9 +47,9 @@ struct PropertyDetails: View {
             }
 
             HStack {
-                PropertyTypeTag(propertyType: property.propertyType)
+                TextTag(tagText: property.propertyType.localized)
 
-                OperationTag(operationType: property.operation)
+                TextTag(tagText: property.operation.localized)
 
                 Text(property.moreCharacteristics.exterior ? "EXTERIOR".localized : "INTERIOR".localized)
                     .bodyStyle

@@ -59,3 +59,6 @@
 "CERTIFICATION" = "Certificación energética";
 "DUPLEX" = "Dúplex";
 
+//Favorites View
+"NO_FAVORITES" = "No hay favoritos";
+

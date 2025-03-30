@@ -99,7 +99,6 @@ struct PropertyCell: View {
                                 try await PersistenceManager.shared.addToPersistence(property.favoritedProperty(),
                                                                                      to: .favorites)
                             }
-                            PersistenceManager.shared.debugPrintPersistence(for: .favorites)
                             isFavorited.toggle()
                         }
                     }

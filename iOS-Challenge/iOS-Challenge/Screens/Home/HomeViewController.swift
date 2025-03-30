@@ -14,7 +14,7 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @IBOutlet weak var ListViewContainer: UIView!
+    @IBOutlet var ListViewContainer: UIView!
 
     init(repository: PropietiesDataRepositoryProtocol) {
         self.repository = repository

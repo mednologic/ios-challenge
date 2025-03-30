@@ -9,6 +9,6 @@ import SwiftUI
 
 extension View {
     func cardShadow() -> some View {
-        self.modifier(DesignSystem.CardShadowModifier())
+        modifier(DesignSystem.CardShadowModifier())
     }
 }

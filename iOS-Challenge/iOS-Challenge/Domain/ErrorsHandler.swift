@@ -18,13 +18,11 @@ enum AppError: Error {
     case unknown(Error)
 }
 
-
 protocol ErrorHandler {
     func handle(error: Error) -> String
 }
 
 struct ErrorsHandler {
-
     public init() {}
 
     func handleNetworkError(_ error: NetworkError) -> String {
@@ -39,7 +37,7 @@ struct ErrorsHandler {
             switch error {
             case .noContent:
                 return "NO_CONTENT_ERROR".localized
-            case .decodingError(_):
+            case .decodingError:
                 return "DECODING_ERROR".localized
             }
         }
@@ -52,11 +50,11 @@ struct ErrorsHandler {
             switch error {
             case let appError as AppError:
                 switch appError {
-                case .network(let networkError):
+                case let .network(networkError):
                     return handleNetworkError(networkError)
-                case .decoding(let decoderError):
+                case let .decoding(decoderError):
                     return handleDecoderError(decoderError)
-                case .unknown(let unknownError):
+                case let .unknown(unknownError):
                     return handleUnknownError(unknownError)
                 }
             default:

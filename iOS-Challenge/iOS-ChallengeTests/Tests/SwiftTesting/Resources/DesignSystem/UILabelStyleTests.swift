@@ -5,13 +5,12 @@
 //  Created by josepL on 30/3/25.
 //
 
-import Testing
 @testable import iOS_Challenge
+import Testing
 import UIKit
 
 @MainActor
 struct UILabelStyleTests {
-
     @Test("Should apply title style correctly")
     func test_titleStyle() {
         let label = UILabel()

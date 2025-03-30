@@ -11,6 +11,7 @@ struct ImageView: View {
     enum Constants {
         static let heightIphone: CGFloat = 300
     }
+
     let urlString: String?
 
     @State private var image: UIImage?
@@ -53,8 +54,7 @@ struct ImageView: View {
     }
 }
 
-
 #Preview {
     ImageView(urlString: PropertyModel.mockPropertyModelRent.thumbnail)
-    .padding()
+        .padding()
 }

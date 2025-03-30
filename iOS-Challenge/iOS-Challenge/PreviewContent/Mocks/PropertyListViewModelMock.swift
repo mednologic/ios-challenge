@@ -19,7 +19,7 @@ class MockRepository: PropietiesDataRepositoryProtocol {
     func fecthPropietyDetail() async throws -> PropertyDetailModel {
         .mockPropertyDetailModelSell
     }
-    
+
     func fetchPropietiesList() async throws -> [PropertyModel] {
         [.mockPropertyModelRent, .mockPropertyModelRent]
     }

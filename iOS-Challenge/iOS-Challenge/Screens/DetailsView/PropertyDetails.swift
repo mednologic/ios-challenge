@@ -91,7 +91,6 @@ struct PropertyDetails: View {
                 .onTapGesture {
                     showMap = true
                 }
-            
         }
         .navigationDestination(isPresented: $showMap) {
             MapView(latitude: property.ubication.latitude, longitude: property.ubication.longitude)

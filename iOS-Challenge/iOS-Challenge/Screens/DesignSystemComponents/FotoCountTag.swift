@@ -21,7 +21,7 @@ struct FotoCountTag: View {
             .fill(DesignSystem.Colors.tag)
             .frame(width: Constants.sizeWidth, height: Constants.sizeHeight)
             .overlay {
-                Text("\(index+1)/\(total)")
+                Text("\(index + 1)/\(total)")
                     .tagStyle
             }
     }

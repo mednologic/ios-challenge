@@ -102,7 +102,7 @@ struct PropertyCell: View {
                             isFavorited.toggle()
                         }
                     }
-                    .padding([.bottom,.trailing], DesignSystem.Spacing.s)
+                    .padding([.bottom, .trailing], DesignSystem.Spacing.s)
             }
         }
     }

@@ -8,8 +8,7 @@
 import SwiftUI
 
 final class FavoritesViewController: UIViewController {
-
-    @IBOutlet weak var FavoritesListContainer: UIView!
+    @IBOutlet var FavoritesListContainer: UIView!
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

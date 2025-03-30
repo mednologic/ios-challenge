@@ -23,7 +23,7 @@ final class DecoderJSON {
         let (data, response) = try await session.data(from: url)
 
         guard let httpResponse = response as? HTTPURLResponse,
-              (200..<300).contains(httpResponse.statusCode) else {
+              (200 ..< 300).contains(httpResponse.statusCode) else {
             throw DecoderJSONError.noContent
         }
 

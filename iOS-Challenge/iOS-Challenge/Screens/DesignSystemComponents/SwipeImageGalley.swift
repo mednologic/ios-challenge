@@ -34,7 +34,7 @@ struct SwipeImageGalley: View {
     SwipeImageGalley(
         images: [
             ImageModel.mockImageModel,
-            ImageModel.mockImageModel
+            ImageModel.mockImageModel,
         ]
     )
 }

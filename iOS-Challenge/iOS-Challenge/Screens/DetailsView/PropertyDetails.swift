@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+
+/// Optional Bonus: example of responsive design
 struct PropertyDetails: View {
     @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var commentExpanded = false

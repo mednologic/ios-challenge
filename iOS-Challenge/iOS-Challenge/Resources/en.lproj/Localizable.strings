@@ -45,6 +45,7 @@
 "PLANTA" = "Floor";
 "EXTERIOR" = "Exterior";
 "INTERIOR" = "Interior";
+"SAVED_ON" = "Saved on ";
 
 // Details Screen
 "VER_MENOS" = "Show less";

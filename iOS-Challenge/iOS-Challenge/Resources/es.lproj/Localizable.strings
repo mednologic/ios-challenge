@@ -45,6 +45,7 @@
 "PLANTA" = "Planta";
 "EXTERIOR" = "Exterior";
 "INTERIOR" = "Interior";
+"SAVED_ON" = "Guardado el ";
 
 // Details Screen
 "VER_MENOS" = "Ver menos";

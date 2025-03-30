@@ -21,7 +21,7 @@ struct ImageView: View {
 
     var body: some View {
         Group {
-            if let image = image {
+            if let image {
                 Image(uiImage: image)
                     .resizable()
             } else if isLoading {

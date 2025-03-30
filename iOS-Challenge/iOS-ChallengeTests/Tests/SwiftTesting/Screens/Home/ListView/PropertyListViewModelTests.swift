@@ -34,7 +34,7 @@ struct PropertyListViewModelTests {
         ]
 
         let viewModel = await makeSUT(listResult: { expectedList })
-        await #expect(viewModel.propietiesList == expectedList)
+        await #expect(viewModel.propertiesList == expectedList)
     }
 
     @Test("Should throw error when property list loading fails")

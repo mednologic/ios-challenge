@@ -10,7 +10,7 @@ extension PropertyListViewModel {
         let mockProperty: PropertyModel = .mockPropertyModelRent
 
         let viewModel = PropertyListViewModel(repository: MockRepository())
-        viewModel.propietiesList = [mockProperty]
+        viewModel.propertiesList = [mockProperty]
         return viewModel
     }
 }

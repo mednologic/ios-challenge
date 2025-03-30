@@ -8,7 +8,7 @@
 import SwiftUI
 
 final class FavoritesViewController: UIViewController {
-    @IBOutlet var FavoritesListContainer: UIView!
+    @IBOutlet var favoritesListContainer: UIView!
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,9 +40,9 @@ final class FavoritesViewController: UIViewController {
 
         let hostingController = UIHostingController(rootView: swiftUIView)
         addChild(hostingController)
-        hostingController.view.frame = FavoritesListContainer.bounds
+        hostingController.view.frame = favoritesListContainer.bounds
         hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        FavoritesListContainer.addSubview(hostingController.view)
+        favoritesListContainer.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
     }
 }

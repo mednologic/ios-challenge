@@ -17,7 +17,7 @@ struct PropertyListView: View {
         NavigationStack {
             ScrollView {
                 LazyVStack(spacing: DesignSystem.Spacing.m) {
-                    ForEach(viewModel.propietiesList, id: \.propertyCode) { property in
+                    ForEach(viewModel.propertiesList, id: \.propertyCode) { property in
                         PropertyCell(property: property)
                             .onTapGesture {
                                 Task {

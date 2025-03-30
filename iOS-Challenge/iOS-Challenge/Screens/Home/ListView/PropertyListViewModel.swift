@@ -9,8 +9,8 @@ import SwiftUI
 
 @MainActor
 class PropertyListViewModel: ObservableObject {
-    @Published var propietiesList: [PropertyModel] = []
-    @Published var propietyDetail: PropertyDetailModel?
+    @Published var propertiesList: [PropertyModel] = []
+    @Published var propertyDetail: PropertyDetailModel?
     private let repository: PropietiesDataRepositoryProtocol
 
     init(repository: PropietiesDataRepositoryProtocol) {
@@ -21,7 +21,7 @@ class PropertyListViewModel: ObservableObject {
     }
 
     func fetchList() async throws {
-        propietiesList = try await repository.fetchPropietiesList()
+        propertiesList = try await repository.fetchPropietiesList()
     }
 
     func fetchDetail() async throws -> PropertyDetailModel {

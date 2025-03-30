@@ -11,5 +11,5 @@ let api = URL(string: "https://idealista.github.io/ios-challenge/")!
 
 extension URL {
     static let getList = api.appending(path: "list.json")
-    static let getDetails = api.appending(path: "detail.json ")
+    static let getDetails = api.appending(path: "detail.json")
 }

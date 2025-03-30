@@ -18,7 +18,7 @@ struct PropertyDetails: View {
             DesignSystem.Colors.background.ignoresSafeArea()
             ScrollView {
                 VStack(spacing: DesignSystem.Spacing.m) {
-                    SwipeImageGalley(images: property.multimedia)
+                    SwipeImageGalley(images: property.multimedia.images)
 
                     propertyDetailsSection
 

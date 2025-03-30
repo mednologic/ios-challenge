@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwipeImageGalley: View {
-    let images: [ImageModel]
+    let images: [ImageRepresentableProtocol]
 
     @State private var selectedImageIndex = 0
 
@@ -33,10 +33,8 @@ struct SwipeImageGalley: View {
 #Preview {
     SwipeImageGalley(
         images: [
-            .mockImageModel,
-            .mockImageModelDetail,
-            .mockImageModelDetail,
-            .mockImageModel
+            ImageModel.mockImageModel,
+            ImageModel.mockImageModel
         ]
     )
 }

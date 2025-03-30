@@ -15,7 +15,7 @@ extension PropertyDetailModel {
         extendedPropertyType: "Flat",
         homeType: "Flat",
         state: "active",
-        multimedia: [.mockImageModel, .mockImageModel],
+        multimedia: MultimediaDetailsModel(images: [.mockImageModelDetail]),
         propertyComment: mockpropertyComment,
         ubication: .mockUbicationModel,
         country: "es",

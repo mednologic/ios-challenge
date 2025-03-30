@@ -14,12 +14,16 @@ struct PropertyDetailModel: Codable {
     let extendedPropertyType: String
     let homeType: String
     let state: String
-    let multimedia: [ImageModel]
+    let multimedia: MultimediaDetailsModel
     let propertyComment: String
     let ubication: UbicationModel
     let country: String
     let moreCharacteristics: MoreCharacteristicsModel
     let energyCertification: EnergyCertificationModel
+}
+
+struct MultimediaDetailsModel: Codable {
+    let images: [ImageDetailsModel]
 }
 
 extension PropertyDetailModel {

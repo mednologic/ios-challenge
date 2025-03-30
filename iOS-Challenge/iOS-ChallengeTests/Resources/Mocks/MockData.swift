@@ -8,7 +8,6 @@
 import Foundation
 
 extension Data {
-
     static let mockInvalidJSON = """
     {
         "thumbnail": "https://example.com/image.jpg"

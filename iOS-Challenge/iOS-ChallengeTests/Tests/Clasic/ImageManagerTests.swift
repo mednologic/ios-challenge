@@ -5,11 +5,10 @@
 //  Created by josepL on 30/3/25.
 //
 
-import XCTest
 @testable import iOS_Challenge
+import XCTest
 
 final class ImageManagerTests: XCTestCase {
-
     var imageManager: ImageManager!
     var dummyURL: URL!
     var dummyImage: UIImage!

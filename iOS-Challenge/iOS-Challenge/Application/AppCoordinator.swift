@@ -10,28 +10,22 @@ import UIKit
 
 public protocol CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] { get set }
-    var tbBarController: UITabBarController { get set }
+    var tabBarController: UITabBarController { get set }
     func start()
 }
 
 class AppCoordinator: CoordinatorProtocol {
     var childCoordinators: [CoordinatorProtocol] = []
     var window: UIWindow
-    let repository = PropietiesDataRepository()
+    private let repository: PropietiesDataRepositoryProtocol
 
-    lazy var tbBarController: UITabBarController = {
-        getNavigation()
-    }()
+    lazy var tabBarController: UITabBarController = UITabBarController()
 
-    init(window: UIWindow) {
+    init(window: UIWindow, repository: PropietiesDataRepositoryProtocol = PropietiesDataRepository()) {
         self.window = window
-        self.window.rootViewController = tbBarController
+        self.repository = repository
+        self.window.rootViewController = tabBarController
         self.window.makeKeyAndVisible()
-    }
-
-    private func getNavigation() -> UITabBarController {
-        let navigator = UITabBarController()
-        return navigator
     }
 
     func start() {
@@ -39,20 +33,20 @@ class AppCoordinator: CoordinatorProtocol {
     }
 
     func setTabBar() {
-        let homeView = setHomeView()
+        let homeView = makeHomeView()
         homeView.title = "HOME_TITLE".localized
         homeView.tabBarItem.image = UIImage(systemName: "house.fill")
 
-        let favoritesView = setFavoritesView()
+        let favoritesView = makeFavoritesView()
         favoritesView.title = "FAVORITES_TITLE".localized
         favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
 
-        tbBarController.tabBar.tintColor = DesignSystem.Colors.tabBarSelectedUIColor
-        tbBarController.tabBar.unselectedItemTintColor = DesignSystem.Colors.tabBarUnselectedUIColor
-        tbBarController.setViewControllers([homeView, favoritesView], animated: true)
+        tabBarController.tabBar.tintColor = DesignSystem.Colors.tabBarSelectedUIColor
+        tabBarController.tabBar.unselectedItemTintColor = DesignSystem.Colors.tabBarUnselectedUIColor
+        tabBarController.setViewControllers([homeView, favoritesView], animated: true)
     }
 
-    func setHomeView() -> UINavigationController {
+    func makeHomeView() -> UINavigationController {
         let navigationController = UINavigationController()
         let view = HomeViewController(repository: repository)
 
@@ -61,7 +55,7 @@ class AppCoordinator: CoordinatorProtocol {
         return navigationController
     }
 
-    func setFavoritesView() -> UINavigationController {
+    func makeFavoritesView() -> UINavigationController {
         let navigationController = UINavigationController()
         let view = FavoritesViewController()
 

@@ -14,7 +14,7 @@ final class HomeViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    @IBOutlet weak var ListViewContainer: UIView!
+    @IBOutlet var listViewContainer: UIView!
 
     init(repository: PropietiesDataRepositoryProtocol) {
         self.repository = repository
@@ -43,9 +43,9 @@ final class HomeViewController: UIViewController {
 
         let hostingController = UIHostingController(rootView: swiftUIView)
         addChild(hostingController)
-        hostingController.view.frame = ListViewContainer.bounds
+        hostingController.view.frame = listViewContainer.bounds
         hostingController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        ListViewContainer.addSubview(hostingController.view)
+        listViewContainer.addSubview(hostingController.view)
         hostingController.didMove(toParent: self)
     }
 }

@@ -9,15 +9,15 @@ import SwiftUI
 
 @MainActor
 class FavoritesListViewModel: ObservableObject {
-    @Published var propietiesFavoriteList: [PropertyModel] = []
+    @Published var propertiesFavoriteList: [PropertyModel] = []
 
     func loadFavorites() async {
         do {
-            let favoritedProperties: [FavoritedProperty] = try await PersistenceManager.shared.load(from: .favorites,
-                                                                                                    as: [FavoritedProperty].self)
-            propietiesFavoriteList = favoritedProperties.map { $0.property }
+            let favoritedProperties = try await PersistenceManager.shared.load(from: .favorites,
+                                                                               as: [FavoritedProperty].self)
+            propertiesFavoriteList = favoritedProperties.map { $0.property }
         } catch {
-            propietiesFavoriteList = []
+            propertiesFavoriteList = []
         }
     }
 }

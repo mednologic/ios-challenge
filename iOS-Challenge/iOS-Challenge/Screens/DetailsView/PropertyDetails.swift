@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PropertyDetails: View {
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var commentExpanded = false
     @State private var selectedImageIndex = 0
     @State private var showMap = false
@@ -17,15 +18,37 @@ struct PropertyDetails: View {
     var body: some View {
         ZStack {
             DesignSystem.Colors.background.ignoresSafeArea()
-            ScrollView {
-                VStack(spacing: DesignSystem.Spacing.m) {
-                    SwipeImageGalley(images: property.multimedia.images)
 
-                    propertyDetailsSection
-
-                    Spacer()
+            VStack {
+                if horizontalSizeClass == .regular {
+                    ipadDisplayView
+                } else {
+                    iphoneDisplayView
                 }
-                .padding()
+            }
+            .padding()
+        }
+    }
+
+    private var iphoneDisplayView: some View {
+        ScrollView {
+            SwipeImageGalley(images: property.multimedia.images)
+            propertyDetailsSection
+            Spacer()
+        }
+    }
+
+    private var ipadDisplayView: some View {
+        Group {
+            SwipeImageGalley(images: property.multimedia.images)
+                .frame(maxWidth: .infinity)
+                .frame(height: horizontalSizeClass == .regular ? 500 : 300)
+                .clipped()
+                .background(Color.blue)
+
+            ScrollView {
+                propertyDetailsSection
+                    .padding()
             }
         }
     }
@@ -47,9 +70,9 @@ struct PropertyDetails: View {
             }
 
             HStack {
-                PropertyTypeTag(propertyType: property.propertyType)
+                TextTag(tagText: property.propertyType.localized)
 
-                OperationTag(operationType: property.operation)
+                TextTag(tagText: property.operation.localized)
 
                 Text(property.moreCharacteristics.exterior ? "EXTERIOR".localized : "INTERIOR".localized)
                     .bodyStyle
@@ -87,11 +110,10 @@ struct PropertyDetails: View {
             sectionBanner(title: "LOCALIZATION".localized)
 
             MapView(latitude: property.ubication.latitude, longitude: property.ubication.longitude)
-                .frame(height: 200)
+                .frame(height: horizontalSizeClass == .regular ? 400 : 200)
                 .onTapGesture {
                     showMap = true
                 }
-            
         }
         .navigationDestination(isPresented: $showMap) {
             MapView(latitude: property.ubication.latitude, longitude: property.ubication.longitude)

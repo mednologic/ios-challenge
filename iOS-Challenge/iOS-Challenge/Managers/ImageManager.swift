@@ -8,7 +8,7 @@
 import SwiftUI
 
 /// Optional bonus: images fetched or by cache
-final class ImageManager{
+final class ImageManager {
     enum ImageError: Error {
         case imageDataInvalid
         case imageProcessingFailed
@@ -44,4 +44,3 @@ final class ImageManager{
         return image
     }
 }
-

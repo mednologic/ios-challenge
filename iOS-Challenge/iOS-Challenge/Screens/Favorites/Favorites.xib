@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FavoritesViewController">
             <connections>
-                <outlet property="FavoritesListContainer" destination="YAL-Wo-nCX" id="KSV-xQ-Ipb"/>
+                <outlet property="favoritesListContainer" destination="YAL-Wo-nCX" id="KSV-xQ-Ipb"/>
                 <outlet property="view" destination="iN0-l3-epB" id="jZQ-y7-MRW"/>
             </connections>
         </placeholder>

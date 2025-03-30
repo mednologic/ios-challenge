@@ -10,7 +10,7 @@ extension PropertyListViewModel {
         let mockProperty: PropertyModel = .mockPropertyModelRent
 
         let viewModel = PropertyListViewModel(repository: MockRepository())
-        viewModel.propietiesList = [mockProperty]
+        viewModel.propertiesList = [mockProperty]
         return viewModel
     }
 }
@@ -19,7 +19,7 @@ class MockRepository: PropietiesDataRepositoryProtocol {
     func fecthPropietyDetail() async throws -> PropertyDetailModel {
         .mockPropertyDetailModelSell
     }
-    
+
     func fetchPropietiesList() async throws -> [PropertyModel] {
         [.mockPropertyModelRent, .mockPropertyModelRent]
     }

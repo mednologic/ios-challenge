@@ -10,17 +10,19 @@ import SwiftUI
 struct ImageView: View {
     enum Constants {
         static let heightIphone: CGFloat = 300
+        static let heightIpad: CGFloat = 500
     }
-    let urlString: String?
 
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @State private var image: UIImage?
     @State private var isLoading = true
 
+    let urlString: String?
     private let imageManager = ImageManager()
 
     var body: some View {
         Group {
-            if let image = image {
+            if let image {
                 Image(uiImage: image)
                     .resizable()
             } else if isLoading {
@@ -31,7 +33,7 @@ struct ImageView: View {
             }
         }
         .clipped()
-        .frame(height: Constants.heightIphone)
+        .frame(height: horizontalSizeClass == .regular ? Constants.heightIpad : Constants.heightIphone)
         .cornerRadius(DesignSystem.CornerRadius.m)
         .task {
             await loadImage()
@@ -53,8 +55,7 @@ struct ImageView: View {
     }
 }
 
-
 #Preview {
     ImageView(urlString: PropertyModel.mockPropertyModelRent.thumbnail)
-    .padding()
+        .padding()
 }

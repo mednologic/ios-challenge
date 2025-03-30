@@ -8,7 +8,7 @@
 extension PropertyDetailModel {
     static let mockPropertyDetailModelSell = PropertyDetailModel(
         adid: 1,
-        price: 1195000.0,
+        price: 2295000.0,
         priceInfo: .mockPriceInfoModel,
         operation: .sale,
         propertyType: .flat,

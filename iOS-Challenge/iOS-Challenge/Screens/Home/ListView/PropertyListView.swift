@@ -10,6 +10,7 @@ import SwiftUI
 struct PropertyListView: View {
     @ObservedObject var viewModel: PropertyListViewModel
     @State private var showDetails = false
+    @State private var selectedDetail: PropertyDetailModel?
 
     var body: some View {
         NavigationStack {
@@ -18,15 +19,29 @@ struct PropertyListView: View {
                     ForEach(viewModel.propietiesList, id: \.propertyCode) { property in
                         PropertyCell(property: property)
                             .onTapGesture {
-                                showDetails = true
+                                Task {
+                                    do {
+                                        let detail = try await viewModel.fetchDetail()
+                                        selectedDetail = detail
+                                        showDetails = true
+                                    } catch {
+                                        AlertPresenter.showAlert(title: "ERROR".localized,
+                                                                 message: "BAD_RESPONSE_ERROR".localized)
+                                    }
+                                }
                             }
                             .padding(.bottom, DesignSystem.Spacing.m)
                     }
                 }
                 .padding(.top, DesignSystem.Spacing.m)
             }
+
             .navigationDestination(isPresented: $showDetails) {
-                PropertyDetails(property: .mockPropertyDetailModelSell)
+                if let detail = selectedDetail {
+                    PropertyDetails(property: detail)
+                } else {
+                    ProgressView("Cargando detalle...")
+                }
             }
         }
         .background(DesignSystem.Colors.background.ignoresSafeArea())

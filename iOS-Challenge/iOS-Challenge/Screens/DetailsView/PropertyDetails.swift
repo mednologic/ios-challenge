@@ -116,6 +116,9 @@ struct PropertyDetails: View {
                 .onTapGesture {
                     showMap = true
                 }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(Text("ACC_MAP_LABEL".localized))
+                .accessibilityHint(Text("ACC_MAP_HINT".localized))
         }
         .navigationDestination(isPresented: $showMap) {
             MapView(latitude: property.ubication.latitude, longitude: property.ubication.longitude)
@@ -127,6 +130,11 @@ struct PropertyDetails: View {
             Text(property.propertyComment)
                 .bodyStyle
                 .lineLimit(commentExpanded ? nil : 5)
+                .accessibilityLabel(
+                    commentExpanded ?
+                    Text(property.propertyComment) :
+                    Text("ACC_DESCRIPTION_COLLAPSED".localized)
+                )
 
             Button(action: {
                 commentExpanded.toggle()
@@ -134,6 +142,9 @@ struct PropertyDetails: View {
                 Text(commentExpanded ? "VER_MENOS".localized : "VER_COMENTARIO_COMPLETO".localized)
                     .actionStyle
             }
+            .accessibilityLabel(commentExpanded ?
+                Text("ACC_HIDE_DESCRIPTION_LABEL".localized) :
+                Text("ACC_SHOW_DESCRIPTION_LABEL".localized))
         }
     }
 

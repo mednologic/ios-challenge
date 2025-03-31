@@ -36,10 +36,15 @@ class AppCoordinator: CoordinatorProtocol {
         let homeView = makeHomeView()
         homeView.title = "HOME_TITLE".localized
         homeView.tabBarItem.image = UIImage(systemName: "house.fill")
+        /// Optional bonus: Accesibility on UIKit
+        homeView.tabBarItem.accessibilityLabel = "ACC_TAB_HOME_LABEL".localized
+        homeView.tabBarItem.accessibilityHint = "ACC_TAB_HOME_HINT".localized
 
         let favoritesView = makeFavoritesView()
         favoritesView.title = "FAVORITES_TITLE".localized
         favoritesView.tabBarItem.image = UIImage(systemName: "heart.fill")
+        favoritesView.tabBarItem.accessibilityLabel = "ACC_TAB_FAVORITES_LABEL".localized
+        favoritesView.tabBarItem.accessibilityHint = "ACC_TAB_FAVORITES_HINT".localized
 
         tabBarController.tabBar.tintColor = DesignSystem.Colors.tabBarSelectedUIColor
         tabBarController.tabBar.unselectedItemTintColor = DesignSystem.Colors.tabBarUnselectedUIColor

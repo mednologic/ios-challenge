@@ -52,6 +52,8 @@ struct PropertyCell: View {
                 }
             }
         }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(Text("\(property.address), \(property.municipality), \(property.province). " + "PRICE_PREFIX".localized + " \(property.formattedPrice)"))
     }
 
     @ViewBuilder
@@ -115,6 +117,10 @@ struct PropertyCell: View {
                         }
                     }
                     .padding([.bottom, .trailing], DesignSystem.Spacing.s)
+                /// Optional bonus: Accesibility on SwiftUI
+                    .accessibilityLabel(isFavorited ? "ACC_FAVORITE_ON_LABEL".localized :
+                        "ACC_FAVORITE_OFF_LABEL".localized)
+                    .accessibilityHint("ACC_FAVORITE_HINT".localized)
             }
             if let favoriteDate {
                 HStack {

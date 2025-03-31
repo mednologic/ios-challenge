@@ -20,6 +20,7 @@
 - **Código Limpio y Testable:** Se presta especial atención a la escritura de código limpio, con componentes reutilizables y testeables.
 - **Integración de UIKit y SwiftUI:** Se aprovechan las ventajas de ambos frameworks para construir una experiencia de usuario robusta y adaptable.
 - **Uso de Concurrency (async/await):** Se utiliza la programación asíncrona de Swift para gestionar llamadas a la API y otras tareas, mejorando el rendimiento y la capacidad de respuesta de la app.
+- **Accesibility improved:** Although iOS includes VoiceOver by default, it is not always optimized, which can lead to a suboptimal user experience for visually impaired users. By optimizing accessibility, the UX becomes more friendly and inclusive.
 
 ## Compatibilidad
 

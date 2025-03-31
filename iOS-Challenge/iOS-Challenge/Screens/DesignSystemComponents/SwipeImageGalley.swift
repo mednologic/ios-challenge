@@ -31,6 +31,10 @@ struct SwipeImageGalley: View {
         }
         .tabViewStyle(PageTabViewStyle(indexDisplayMode: .always))
         .frame(height: horizontalSizeClass == .regular ? nil : Constants.heightIphone)
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel(Text("PHOTO_CAROUSEL_LABEL".localized))
+        .accessibilityValue(Text(String(format: "PHOTO_COUNT_FORMAT".localized, selectedImageIndex + 1, images.count)))
+        .accessibilityHint(Text("PHOTO_CAROUSEL_HINT".localized))
     }
 
     @ViewBuilder

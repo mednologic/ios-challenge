@@ -65,3 +65,24 @@
 //Favorites View
 "NO_FAVORITES" = "No hay favoritos";
 
+//Accesibility
+"ACC_TAB_HOME_LABEL" = "Inicio";
+"ACC_TAB_HOME_HINT" = "Accede a la pantalla principal de anuncios";
+"ACC_TAB_FAVORITES_LABEL" = "Favoritos";
+"ACC_TAB_FAVORITES_HINT" = "Accede a los anuncios marcados como favoritos";
+"ACC_FAVORITE_ON_LABEL" = "Favorito activado";
+"ACC_FAVORITE_OFF_LABEL" = "Favorito desactivado";
+"ACC_FAVORITE_HINT" = "Pulse para marcar o desmarcar como favorito";
+"PRICE_PREFIX" = "Precio:";
+"PHOTO_CAROUSEL_LABEL" = "Carrusel de fotos";
+"PHOTO_COUNT_FORMAT" = "Foto %d de %d";
+"PHOTO_CAROUSEL_HINT" = "Desliza hacia la izquierda o derecha para cambiar de foto";
+"ACC_MAP_LABEL" = "Mapa de localización";
+"ACC_MAP_HINT" = "Pulse para ver el mapa en pantalla completa";
+"ACC_DESCRIPTION_FORMAT" = "Descripción: %@";
+"ACC_SHOW_DESCRIPTION_HINT" = "Pulse para escuchar la descripción completa";
+"ACC_HIDE_DESCRIPTION_HINT" = "Pulse para ocultar la descripción completa";
+"ACC_SHOW_DESCRIPTION_LABEL" = "Mostrar descripción completa";
+"ACC_HIDE_DESCRIPTION_LABEL" = "Ocultar descripción completa";
+"ACC_DESCRIPTION_COLLAPSED" = "Descripción resumida, pulse para expandir";
+

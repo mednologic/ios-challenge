@@ -64,3 +64,25 @@
 
 //Favorites View
 "NO_FAVORITES" = "No favorites";
+
+//Accesibility
+"ACC_TAB_HOME_LABEL" = "Home";
+"ACC_TAB_HOME_HINT" = "Access the main ads screen";
+"ACC_TAB_FAVORITES_LABEL" = "Favorites";
+"ACC_TAB_FAVORITES_HINT" = "Access the ads marked as favorites";
+"ACC_FAVORITE_ON_LABEL" = "Favorite activated";
+"ACC_FAVORITE_OFF_LABEL" = "Favorite deactivated";
+"ACC_FAVORITE_HINT" = "Tap to mark or unmark as favorite";
+"PRICE_PREFIX" = "Price:";
+"PHOTO_CAROUSEL_LABEL" = "Photo Carousel";
+"PHOTO_COUNT_FORMAT" = "Photo %d of %d";
+"PHOTO_CAROUSEL_HINT" = "Swipe left or right to change the photo";
+"ACC_MAP_LABEL" = "Location Map";
+"ACC_MAP_HINT" = "Tap to view the map in full screen";
+"ACC_DESCRIPTION_FORMAT" = "Description: %@";
+"ACC_SHOW_DESCRIPTION_HINT" = "Tap to listen to the full description";
+"ACC_HIDE_DESCRIPTION_HINT" = "Tap to hide the full description";
+"ACC_SHOW_DESCRIPTION_LABEL" = "Show full description";
+"ACC_HIDE_DESCRIPTION_LABEL" = "Hide full description";
+"ACC_DESCRIPTION_COLLAPSED" = "Collapsed description, tap to expand";
+
